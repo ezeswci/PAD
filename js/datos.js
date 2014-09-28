@@ -179,7 +179,7 @@ function initClickCB() {
             cleanForm();
         });
 
-    $(".fecha").click(
+    /*$(".fecha").click(
 	
         function () {
             var options = {
@@ -216,5 +216,21 @@ function initClickCB() {
                 var auxString = dateParser(dd, mm, yy, hs, minut);
                 $("#datetime").text(auxString);
             });
-        });
+        }); */
+}
+function elegirDia(){
+	alert("elijo dia");
+	var options = {
+                date: new Date(),
+                mode: 'datetime'
+            };
+				datePicker.show(options, function (date) {
+                d = date;
+                var dd = d.getDate();
+                var mm = d.getMonth();
+                var yy = d.getFullYear();
+                var hs = d.getHours();
+                var minut = d.getMinutes();
+                var auxString = dateParser(dd, mm, yy, hs, minut);
+                $("#datetime").text(auxString);})
 }
