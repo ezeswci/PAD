@@ -235,7 +235,7 @@ function elegirDia(){
                 $("#datetime").text(auxString);})*/
 				var options = {
   				date: new Date(),
-  				mode: 'date'
+  				mode: 'datetime'
 				};
 
 			datePicker.show(options, function(date){
