@@ -124,6 +124,7 @@ function buildGraphHist(rs) {
     maxDataOriginal = maxData;
     minDataOriginal = minData;
     colors();
+	mostrarDatos();
 }
 function drawGraph() {
     //D3 settings and data

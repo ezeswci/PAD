@@ -47,9 +47,18 @@ function sendMail() {
     window.plugin.email.open();
 }
 function sendMailDatos() {
-    window.plugin.email.open({
-    body:       datosHistoricos(), // email body (could be HTML code, in this case set isHtml to true)
-    isHtml:    true, // indicats if the body is HTML or plain text
+var data = "";
+db.transaction(function (tx) {
+  tx.executeSql('SELECT * FROM HIST' , [], function (tx, results) {
+  var len = results.rows.length, i;
+    for (i = 0; i < len; i++) {
+      data += results.rows.item(i).text;
+    }
+  });
+});
+window.plugin.email.open({
+    subject:    "Mis Datos -- App Mi Presion Arterial", // subject of the email
+    body:       data, // email body (could be HTML code, in this case set isHtml to true)
 }, callback, scope);
 }
 function abrirVentana(ventana) {
@@ -79,9 +88,6 @@ function initClickCB() {
     $("#permitir").click(createEvent);
     $("#recordatorio").click(function () {
         abrirVentana('1');
-    });
-	$("#medirpresion").click(function () {
-        abrirVentana('4');
     });
     $("#x").click(cerrarVentana);
 

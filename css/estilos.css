@@ -295,6 +295,7 @@ a {
 	font-size: 25px;
 	color: #717174;
 	text-align: center;
+	background-color:#FFF;
 }
 
 
@@ -527,18 +528,25 @@ a {
 	margin-left: auto;
 }
 .cuerpo_mas .item {
-	padding-top: 30px;
-	padding-right: 50px;
+	padding-top: 20px;
+	padding-right: 20px;
 	padding-bottom: 30px;
-	padding-left: 40px;
+	padding-left: 30px;
 	font-size: 23px;
 	background-color: #F7F9F8;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
 	border-bottom-color: #D1D2D4;
+	height:40px;
 }
+.cuerpo_mas .item .txt {
+	width:80%;
+	float:left;
+}
+
 .cuerpo_mas .item img {
 	float: right;
+	width:20%;
 }
 
 #cartel .botones {
