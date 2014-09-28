@@ -44,21 +44,23 @@ function createEvent() {
 }
 
 function sendMail() {
-    window.plugin.email.open();
+    window.plugin.email.open({
+    to:          Array, // email addresses for TO field
+    cc:          Array, // email addresses for CC field
+    bcc:         Array, // email addresses for BCC field
+    attachments: Array, // paths to the files you want to attach or base64 encoded data streams
+    subject:    "Te recomiendo Presion App", // subject of the email
+    body:       "Es una App super buena, puedes descargarla de los siguientes links", // email body (could be HTML code, in this case set isHtml to true)
+}, callback, scope);
 }
 function sendMailDatos() {
-var data = "";
-db.transaction(function (tx) {
-  tx.executeSql('SELECT * FROM HIST' , [], function (tx, results) {
-  var len = results.rows.length, i;
-    for (i = 0; i < len; i++) {
-      data += results.rows.item(i).text;
-    }
-  });
-});
 window.plugin.email.open({
-    subject:    "Mis Datos -- App Mi Presion Arterial", // subject of the email
-    body:       data, // email body (could be HTML code, in this case set isHtml to true)
+    to:          Array, // email addresses for TO field
+    cc:          Array, // email addresses for CC field
+    bcc:         Array, // email addresses for BCC field
+    attachments: Array, // paths to the files you want to attach or base64 encoded data streams
+    subject:    "Mis Datos, Presion App", // subject of the email
+    body:       document.getElementById("resumen_oculto").innerHTML, // email body (could be HTML code, in this case set isHtml to true)
 }, callback, scope);
 }
 function abrirVentana(ventana) {
@@ -91,15 +93,4 @@ function initClickCB() {
     });
     $("#x").click(cerrarVentana);
 
-}
-function datosHistoricos(){
-	tx.executeSql('SELECT * FROM HIST', [], function (tx, results) {  
-            var len = results.rows.length;  
-            var html = [];  
-            for (var i = 0; i < rs.rows.length; i++) {
-       			 var p = rs.rows.item(i);  
-                html.push(parseHistSelect(p.min, p.max, p.note, p.dd, p.mm, p.yy, p.hs, p.minut));  
-            }    
-        },errorCB);
-	return html;
 }

@@ -546,7 +546,8 @@ a {
 
 .cuerpo_mas .item img {
 	float: right;
-	width:20%;
+	width:15%;
+	height:auto;
 }
 
 #cartel .botones {
@@ -571,4 +572,7 @@ a {
 	;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+#resumen_oculto {
+	display:none;
 }
