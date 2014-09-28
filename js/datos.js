@@ -110,7 +110,7 @@ function verif() {
     var min = $("#min").val();
     var note = $("#note").val();
     var datetime = $("#datetime").text();
-    if (datetime == "dd-mm-aa hh:mm") {
+    if (datetime == "dd-mm-aa") {
         alert("Debes ingresar una fecha.");
         return false;
     }
@@ -179,66 +179,24 @@ function initClickCB() {
             cleanForm();
         });
 
-    /*$(".fecha").click(
+    $(".fecha").click(
 	
         function () {
             var options = {
                 date: new Date(),
-                mode: 'datetime'
+                mode: 'date'
             };
 
             datePicker.show(options, function (date) {
+				var f = new Date();
                 d = date;
                 var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
-                var hs = d.getHours();
-                var minut = d.getMinutes();
+                var hs = f.getHours();
+                var minut = f.getMinutes();
                 var auxString = dateParser(dd, mm, yy, hs, minut);
                 $("#datetime").text(auxString);
             });
         });
-		$("#datetime").click(
-	
-        function () {
-            var options = {
-                date: new Date(),
-                mode: 'datetime'
-            };
-
-            datePicker.show(options, function (date) {
-                d = date;
-                var dd = d.getDate();
-                var mm = d.getMonth();
-                var yy = d.getFullYear();
-                var hs = d.getHours();
-                var minut = d.getMinutes();
-                var auxString = dateParser(dd, mm, yy, hs, minut);
-                $("#datetime").text(auxString);
-            });
-        }); */
-}
-function elegirDia(){
-	alert("elijo dia");
-	/*var options = {
-                date: new Date(),
-                mode: 'datetime'
-            };
-				datePicker.show(options, function (date) {
-                d = date;
-                var dd = d.getDate();
-                var mm = d.getMonth();
-                var yy = d.getFullYear();
-                var hs = d.getHours();
-                var minut = d.getMinutes();
-                var auxString = dateParser(dd, mm, yy, hs, minut);
-                $("#datetime").text(auxString);})*/
-				var options = {
-  				date: new Date(),
-  				mode: 'datetime'
-				};
-
-			datePicker.show(options, function(date){
- 			 alert("date result " + date);  
-			});
 }
