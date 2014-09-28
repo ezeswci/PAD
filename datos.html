@@ -21,7 +21,7 @@
     </div>
 
     <div id="cartel" class="cartel">
-        <div id="x">
+        <div onclick="cerrarVentana();" id="x">
             <img src="img/x.jpg" width="35" height="35" />
         </div>
         <strong>¡Muy bien!</strong>
@@ -29,7 +29,7 @@
         <br />de presi&oacute;n arterial hoy.</div>
 
     <div id="cartel2" class="cartel">
-        <div id="x">
+        <div onclick="cerrarVentana();" id="x">
             <img src="img/x.jpg" width="35" height="35" />
         </div>
         Los datos a cargar son la presi&oacute;n arterial m&aacute;xima o sist&oacute;lica (MAX) y la m&iacute;nima o diast&oacute;lica (MIN).
@@ -59,7 +59,13 @@
         </div>
         <div class="main">
             <div class="item">Nota:
-                <input name="note" type="text" id="note" value="---" />
+      <select name="note" id="note">
+        <option>---</option>
+        <option>Tomé la medicación</option>
+        <option>No tomé la medicación</option>
+        <option>Comí con mucha sal</option>
+        <option>Comí con poca sal</option>
+      </select>
             </div>
         </div>
         <div class="item boton">
