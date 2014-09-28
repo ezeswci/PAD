@@ -44,24 +44,12 @@ function createEvent() {
 }
 
 function sendMail() {
-    window.plugin.email.open({
-    to:          Array, // email addresses for TO field
-    cc:          Array, // email addresses for CC field
-    bcc:         Array, // email addresses for BCC field
-    attachments: Array, // paths to the files you want to attach or base64 encoded data streams
-    subject:    "Te recomiendo Presion App", // subject of the email
-    body:       "Es una App super buena, puedes descargarla de los siguientes links", // email body (could be HTML code, in this case set isHtml to true)
-}, callback, scope);
+    window.plugin.email.open();
+	cerrarVentana();
 }
 function sendMailDatos() {
-window.plugin.email.open({
-    to:          Array, // email addresses for TO field
-    cc:          Array, // email addresses for CC field
-    bcc:         Array, // email addresses for BCC field
-    attachments: Array, // paths to the files you want to attach or base64 encoded data streams
-    subject:    "Mis Datos, Presion App", // subject of the email
-    body:       document.getElementById("resumen_oculto").innerHTML, // email body (could be HTML code, in this case set isHtml to true)
-}, callback, scope);
+window.plugin.email.open();
+	cerrarVentana();
 }
 function abrirVentana(ventana) {
     if (ventana == "1") {
