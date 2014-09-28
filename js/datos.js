@@ -220,7 +220,7 @@ function initClickCB() {
 }
 function elegirDia(){
 	alert("elijo dia");
-	var options = {
+	/*var options = {
                 date: new Date(),
                 mode: 'datetime'
             };
@@ -232,5 +232,13 @@ function elegirDia(){
                 var hs = d.getHours();
                 var minut = d.getMinutes();
                 var auxString = dateParser(dd, mm, yy, hs, minut);
-                $("#datetime").text(auxString);})
+                $("#datetime").text(auxString);})*/
+				var options = {
+  				date: new Date(),
+  				mode: 'date'
+				};
+
+			datePicker.show(options, function(date){
+ 			 alert("date result " + date);  
+			});
 }
