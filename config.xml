@@ -62,8 +62,6 @@
 	<!-- End Third party plugins -->
 	<!-- Calendar plug in extenciones -->
 	<!-- for iOS -->
-	<uses-permission android:name="android.permission.READ_CALENDAR"/>
-	<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 	<!-- Calendar plug in extenciones -->
 	
 	<!-- Define app icon for each platform. -->	
