@@ -124,6 +124,7 @@ a {
 	margin-bottom: 20px;
 	width: 100%;
 	font-size: 14px;
+	display:block;
 }
 
 .cuerpo .item img {
@@ -296,7 +297,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 65px;
+	width: 200px;
 	 -moz-appearance: none;
  -webkit-appearance: none;
  appearance: none;
@@ -335,9 +336,9 @@ a {
 #cartel {
 	width: 65%;
 	position: fixed;
-	padding-top: 50px;
+	padding-top: 10px;
 	padding-right: 10%;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	padding-left: 10%;
 	z-index: 10;
 	margin-right: auto;
@@ -349,6 +350,7 @@ a {
 	top: 175px;
 	visibility: hidden;
 	min-height: 175px;
+	overflow-y:auto;
 }
 #cartel #x {
 	float: right;
@@ -371,8 +373,9 @@ a {
 	right: 0px;
 	background-color: #FFF;
 	font-size: 20px;
-	top: 175px;
+	top: 10px;
 	visibility: hidden;
+	overflow-y:auto;
 }
 #cartel2 #x {
 	float: right;
@@ -563,6 +566,7 @@ a {
 	float: right;
 	width:15%;
 	height:auto;
+	max-width:23px;
 }
 
 #cartel .botones {

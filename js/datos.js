@@ -27,8 +27,10 @@ function onDeviceReady() {
     var yy = f.getFullYear();
     var hs = f.getHours();
     var minut = f.getMinutes();
-    var auxString = dateParser(dd, mm, yy, hs, minut);
-    $("#datetime").text(auxString);
+    var dateAuxString = dateParser(dd, mm, yy);
+    var timeAuxString = timeParser(hs, minut);
+    $("#date").text(dateAuxString);
+    $("#time").text(timeAuxString);
 }
 
 // Init the table
@@ -99,35 +101,36 @@ function cerrarVentana() {
     document.getElementById("fondo_negro").style.visibility = "hidden";
 }
 
-function dateParser(dd, mm, yy, hs, minut) {
+function dateParser(dd, mm, yy) {
     mm = mm + 1;
-    return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
+    return dd + "-" + mm + "-" + yy;
+}
+
+function timeParser(hs, minut) {
+    return hs + ":" + minut + "hs";
 }
 
 function cleanForm() {
-    $("#max").text("---");
-    $("#min").text("---");
-    $("#note").text("---");
-    $("#max").val("---");
-    $("#min").val("---");
-    $("#note").val("---");
-    $("#datetime").text("dd-mm-aa hh:mm");
-    $("#aclaracion_max").hide();
-    $("#aclaracion_min").hide();
+    window.location.href="datos.html";
 }
 
 function verif() {
     var max = $("#max").val();
     var min = $("#min").val();
     var note = $("#note").val();
-    var datetime = $("#datetime").text();
+    var date = $("#date").text();
+    var time = $("#time").text();
 
     if (!($.isNumeric(max)) || !($.isNumeric(min))) {
         alert("MAX y MIN deben ser valores numericos.");
         return false;
     }
-    if (datetime == "dd-mm-aa") {
-        alert("Debes ingresar una fecha.");
+    if (date == "dd-mm-aa") {
+        alert("Debes ingresar una fecha valida.");
+        return false;
+    }
+    if (time == "hh:mm") {
+        alert("Debes ingresar una hora valida.");
         return false;
     }
 
@@ -195,7 +198,7 @@ function initClickCB() {
             cleanForm();
         });
 
-    $(".fecha").click(
+    $("#date").click(
 
         function () {
             var options = {
@@ -204,15 +207,42 @@ function initClickCB() {
             };
 
             datePicker.show(options, function (date) {
-                var f = new Date();
-                d = date;
+
+                d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
                 var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
-                var hs = f.getHours();
-                var minut = f.getMinutes();
-                var auxString = dateParser(dd, mm, yy, hs, minut);
-                $("#datetime").text(auxString);
+                var hs = 0;
+                var minut = 0;
+
+                var dateAuxString = dateParser(dd, mm, yy);
+                var hourAuxString = timeParser(hs, minut);
+                $("#date").text(dateAuxString);
+                $("#time").text(hourAuxString);
+            });
+        });
+
+    $("#time").click(
+
+        function () {
+            var options = {
+                date: new Date(),
+                mode: 'time'
+            };
+
+            datePicker.show(options, function (date) {
+
+                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                var dd = d.getDate();
+                var mm = d.getMonth();
+                var yy = d.getFullYear();
+                var hs = d.getHours();
+                var minut = d.getMinutes();
+
+                var dateAuxString = dateParser(dd, mm, yy);
+                var hourAuxString = timeParser(hs, minut);
+                $("#date").text(dateAuxString);
+                $("#time").text(hourAuxString);
             });
         });
 }
