@@ -36,6 +36,9 @@ function colors() {
     minDataY = [];
     maxDataR = [];
     minDataR = [];
+	// Para leer las cantidades
+	document.getElementById("cant_med_tot").innerHTML = maxData.length;
+	// Fin de primera parte de leo las cantidades
     for (index = 0; index < maxData.length; index++) {
         var elementmax = maxData[index];
         var elementmin = minData[index];
@@ -60,6 +63,10 @@ function colors() {
             minDataG.push(elementmin);
         }
     }
+	// Le pongo aca lo de las cantidades segunda parte
+	document.getElementById("cant_med_max").innerHTML = maxDataR.length;
+    document.getElementById("cant_med_min").innerHTML = minDataR.length;
+	// Fin de segunda parte de leo las cantidades
 }
 
 function cleanHist(newDate) {
@@ -170,7 +177,6 @@ function buildGraphHist(rs) {
     minDataOriginal = minData;
     
     colors();
-    mostrarDatos();
 }
 
 function drawGraph() {
@@ -360,9 +366,7 @@ function initClickCB() {
 }
 
 function mostrarDatos() {
-    document.getElementById("cant_med_max").innerHTML = maxData.length;
-    document.getElementById("cant_med_min").innerHTML = minData.length;
-    document.getElementById("cant_med_tot").innerHTML = minDataOriginal.length;
+    
 }
 
 function dateParser(dd, mm, yy, hs, minut) {

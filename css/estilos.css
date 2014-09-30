@@ -16,6 +16,8 @@ body {
 a {
 	text-decoration: none;
 	color: #717174;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+ 	 -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 .header {
@@ -307,10 +309,10 @@ a {
 
 .footer {
 	background-color: #F7F8F8;
-	height: 150px;
+	height: auto;
 	bottom: 0px;
 	margin-top: 58px;
-	margin-bottom: -20px;
+	margin-bottom: 0px;
 	float: left;
 	width: 100%;
 	border-top-width: 2px;
@@ -318,13 +320,16 @@ a {
 	border-top-color: #D1D2D4;
 	text-align: center;
 	padding-top: 10px;
+	padding-bottom:10px;
 	position: fixed;
 }
 
 .footer img {
 	height: auto;
-	width: 25%;
+	width: 20%;
 	max-width: 135px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #cartel {
