@@ -199,7 +199,6 @@ function initClickCB() {
         });
 
     $("#date").click(
-
         function () {
             var options = {
                 date: new Date(),
@@ -212,15 +211,16 @@ function initClickCB() {
                 var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
-                var hs = 0;
-                var minut = 0;
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 $("#date").text(dateAuxString);
                 $("#time").text(hourAuxString);
             });
-        });
+			
+        }
+		
+		);
 
     $("#time").click(
 
