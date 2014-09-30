@@ -30,6 +30,7 @@ function createEvent() {
     };
 
     datePicker.show(options, function (date) {
+		cerrarVentana();
         var dd = date.getDate();
         var mm = date.getMonth();
         var yy = date.getFullYear();
@@ -40,16 +41,15 @@ function createEvent() {
         window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
     });
 
-    cerrarVentana();
 }
 
 function sendMail() {
-    window.plugin.email.open();
 	cerrarVentana();
+    window.plugin.email.open();
 }
 function sendMailDatos() {
-window.plugin.email.open();
 	cerrarVentana();
+	window.plugin.email.open();	
 }
 function abrirVentana(ventana) {
     if (ventana == "1") {

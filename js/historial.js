@@ -57,6 +57,10 @@ function querySuccess(tx, rs) {
 }
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
-
+if(note == "" || note == null || note == "---") {
+    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong></div></div>';
+    
+} else {
     return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong> - Nota: ' + note + '</div></div>';
+}
 }

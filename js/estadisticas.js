@@ -27,6 +27,8 @@ var maxDataY = [];
 var minDataY = [];
 var maxDataR = [];
 var minDataR = [];
+var dateLabel = [];
+
 function colors() {
     maxDataG = [];
     minDataG = [];
@@ -59,15 +61,41 @@ function colors() {
         }
     }
 }
+
 function cleanHist(newDate) {
     maxData = [];
     minData = [];
+    dateLabel = [];
+    
+    var dd;
+    var mm;
+    var yy;
+    var hs;
+    var minut;
+    var index_aux = 0;
+    
     for (index = 0; index < maxDataOriginal.length; index++) {
         var d = maxDataOriginal[index];
         var auxDate = new Date(d.yy, d.mm, d.dd, d.hs, d.minut, 0, 0);
         if (auxDate > newDate) {
-            maxData.push(maxDataOriginal[index]);
-            minData.push(minDataOriginal[index]);
+            maxDataAux = maxDataOriginal[index];
+            minDataAux = minDataOriginal[index];
+            //This index reasings the domain value
+            //It starts from zero again and plus 1 just when i add any element to the array
+            //and it's diferent from the for index.
+            maxDataAux.x = index_aux;
+            minDataAux.x = index_aux;
+            maxData.push(maxDataAux);
+            minData.push(minDataAux);
+            
+            dd = maxDataOriginal[index].dd;
+            mm = maxDataOriginal[index].mm;
+            yy = maxDataOriginal[index].yy;
+            hs = maxDataOriginal[index].hs;
+            minut = maxDataOriginal[index].minut;
+            
+            dateLabel.push(dateParser(dd, mm, yy, hs, minut));
+            index_aux = index_aux + 1;
         }
     }
     colors();
@@ -89,20 +117,31 @@ function successCB() {
     //
     db.transaction(selectHist, errorCB);
 }
+
 function selectHist(tx) {
     tx.executeSql('SELECT * FROM HIST', [], querySuccess, errorCB);
 }
+
 function querySuccess(tx, rs) {
-    // this will be empty since no rows were inserted.
+    //One week is inital filter
+    $("#actual2").addClass("actual");
+    $('#visualisation').empty();
+    //Substract 1 week
+    var newDate = new Date(new Date().setDate(new Date().getDate() - 7));
     buildGraphHist(rs);
+    cleanHist(newDate);
+    // this will be empty since no rows were inserted.
     drawGraph();
 }
+
 function buildGraphHist(rs) {
+    dateLabel = [];
+
     for (var i = 0; i < rs.rows.length; i++) {
         var p = rs.rows.item(i);
         var maxTemp = new Object();
         var minTemp = new Object();
-        var dateTemp = new Date(p.yy,p.mm,p.dd,p.hs,p.minut);
+        var dateTemp = new Date(p.yy, p.mm, p.dd, p.hs, p.minut);
         //alert(dateTemp);
         maxTemp.y = p.max;
         maxTemp.x = i;
@@ -111,6 +150,7 @@ function buildGraphHist(rs) {
         maxTemp.yy = p.yy;
         maxTemp.hs = p.hs;
         maxTemp.minut = p.minut;
+
         minTemp.y = p.min;
         minTemp.x = i;
         minTemp.dd = p.dd;
@@ -118,25 +158,32 @@ function buildGraphHist(rs) {
         minTemp.yy = p.yy;
         minTemp.hs = p.hs;
         minTemp.minut = p.minut;
+
+        //This little bullshit is a tagging array for x axis
+        //
+        dateLabel.push(dateParser(p.dd, p.mm, p.yy, p.hs, p.minut));
+
         maxData.push(maxTemp);
         minData.push(minTemp);
     }
     maxDataOriginal = maxData;
     minDataOriginal = minData;
+    
     colors();
-	mostrarDatos();
+    mostrarDatos();
 }
+
 function drawGraph() {
     //D3 settings and data
     //
     var vis = d3.select('#visualisation'),
-        WIDTH = 250,
-        HEIGHT = 250,
+        WIDTH = 275,
+        HEIGHT = 275,
         MARGINS = {
             top: 30,
-            right: 30,
+            right: 25,
             bottom: 30,
-            left: 30
+            left: 45
         },
         xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(maxData, function (d) {
             return d.x;
@@ -147,22 +194,32 @@ function drawGraph() {
         xAxis = d3.svg.axis()
         .scale(xRange)
         .tickSize(3)
-        .tickSubdivide(true),
+        .tickFormat(function (x) {
+            return dateLabel[x];
+        }),
         yAxis = d3.svg.axis()
         .scale(yRange)
         .tickSize(3)
         .orient('left')
         .tickSubdivide(true);
+
     vis.append('svg:g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
         .call(xAxis)
-        .selectAll("text")  
-            .style("opacity", "0");
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", function (d) {
+            return "rotate(-65)"
+        });
+
     vis.append('svg:g')
         .attr('class', 'y axis')
         .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
         .call(yAxis);
+
     var lineFunc = d3.svg.line()
         .x(function (d) {
             return xRange(d.x);
@@ -170,7 +227,9 @@ function drawGraph() {
         .y(function (d) {
             return yRange(d.y);
         })
-        .interpolate('linear');
+
+    .interpolate('linear');
+
     vis.append('svg:path')
         .attr('d', lineFunc(maxData))
         .attr('stroke', '#c25dff')
@@ -181,6 +240,7 @@ function drawGraph() {
         .attr('stroke', '#ffb33b')
         .attr('stroke-width', 3)
         .attr('fill', 'none');
+
     vis.selectAll("dot")
         .data(maxDataR)
         .enter().append("circle")
@@ -248,6 +308,7 @@ function drawGraph() {
         })
         .style("fill", "green");
 }
+
 function initClickCB() {
     $("#actual1").click(function () {
         $(".item").removeClass("actual");
@@ -297,8 +358,14 @@ function initClickCB() {
             drawGraph();
         });
 }
-function mostrarDatos(){
-	document.getElementById("cant_med_max").innerHTML=maxData.length;
-	document.getElementById("cant_med_min").innerHTML=minData.length;
-	document.getElementById("cant_med_tot").innerHTML=minDataOriginal.length;
+
+function mostrarDatos() {
+    document.getElementById("cant_med_max").innerHTML = maxData.length;
+    document.getElementById("cant_med_min").innerHTML = minData.length;
+    document.getElementById("cant_med_tot").innerHTML = minDataOriginal.length;
+}
+
+function dateParser(dd, mm, yy, hs, minut) {
+    mm = mm + 1;
+    return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
 }

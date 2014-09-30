@@ -18,6 +18,17 @@ function onDeviceReady() {
     db.transaction(initDB, errorCB, successCB);
 
     initClickCB();
+
+    //Init with actual date
+    //
+    var f = new Date();
+    var dd = f.getDate();
+    var mm = f.getMonth();
+    var yy = f.getFullYear();
+    var hs = f.getHours();
+    var minut = f.getMinutes();
+    var auxString = dateParser(dd, mm, yy, hs, minut);
+    $("#datetime").text(auxString);
 }
 
 // Init the table
@@ -110,6 +121,11 @@ function verif() {
     var min = $("#min").val();
     var note = $("#note").val();
     var datetime = $("#datetime").text();
+
+    if (!($.isNumeric(max)) || !($.isNumeric(min))) {
+        alert("MAX y MIN deben ser valores numericos.");
+        return false;
+    }
     if (datetime == "dd-mm-aa") {
         alert("Debes ingresar una fecha.");
         return false;
@@ -180,7 +196,7 @@ function initClickCB() {
         });
 
     $(".fecha").click(
-	
+
         function () {
             var options = {
                 date: new Date(),
@@ -188,7 +204,7 @@ function initClickCB() {
             };
 
             datePicker.show(options, function (date) {
-				var f = new Date();
+                var f = new Date();
                 d = date;
                 var dd = d.getDate();
                 var mm = d.getMonth();
