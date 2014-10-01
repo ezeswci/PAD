@@ -16,6 +16,7 @@ function onDeviceReady() {
     //
     db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
     db.transaction(initDB, errorCB, successCB);
+	db.transaction(initDB, errorCB, successCBM);
 
 }
 
@@ -63,4 +64,45 @@ if(note == "" || note == null || note == "---") {
 } else {
     return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong> - Nota: ' + note + '</div></div>';
 }
+}
+// Email
+function successCBM() {
+    //alert("Success!");
+    //Select query
+    //
+    db.transaction(selectHistM, errorCB);
+}
+function selectHistM(tx) {
+    tx.executeSql('SELECT * FROM HIST', [], querySuccess, errorCB);
+}
+
+function querySuccessM(tx, rs) {
+    // this will be empty since no rows were inserted.
+
+    for (var i = 0; i < rs.rows.length; i++) {
+        var p = rs.rows.item(i);
+
+        var element = parseHistSelectM(p.min, p.max, p.note, p.dd, p.mm, p.yy, p.hs, p.minut);
+        //alert(element);
+        $("#resumen_oculto").append(element);
+    }
+}
+
+function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
+if(note == "" || note == null || note == "---") {
+    return 'Fecha: ' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg '+"\r\n";
+    
+} else {
+    return 'Fecha:' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg - Nota: ' + note + "\r\n";
+}
+}
+function sendMailDatos() {
+	var datos=document.getElementById("resumen_oculto").innerHTML;
+	window.plugin.email.open({
+    to:      [''],
+    cc:      [''],
+    bcc:     [''],
+    subject: 'Mis Datos, App Presión',
+    body:    datos
+});
 }
