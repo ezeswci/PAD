@@ -297,11 +297,11 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 150px;
+	width: 100px;
 	 -moz-appearance: none;
  -webkit-appearance: none;
  appearance: none;
-	font-size: 25px;
+	font-size: 14px;
 	color: #717174;
 	text-align: center;
 	background-color:#FFF;
@@ -343,11 +343,9 @@ a {
 	z-index: 10;
 	margin-right: auto;
 	margin-left: auto;
-	left: 0px;
-	right: 0px;
 	background-color: #FFF;
 	font-size: 20px;
-	top: 175px;
+	top: 20%;
 	visibility: hidden;
 	min-height: 175px;
 	overflow-y:auto;
@@ -369,11 +367,9 @@ a {
 	z-index: 10;
 	margin-right: auto;
 	margin-left: auto;
-	left: 0px;
-	right: 0px;
 	background-color: #FFF;
 	font-size: 20px;
-	top: 10px;
+	top: 10%;
 	visibility: hidden;
 	overflow-y:auto;
 }
@@ -501,8 +497,8 @@ a {
 
 .header .titulo .historial_logo {
 	position: absolute;
-	left: 44px;
-	top: 22px;
+	left: 10px;
+	top: 5px;
 }
 .historial_item {
 	width: 100%;

@@ -57,9 +57,10 @@ function insertHist(tx) {
 
     tx.executeSql(query, [max, min, note, dd, mm, yy, hs, minut]);
 
-    cleanForm();
+    //
     //User msg
     //
+	setTimeout(function(){cleanForm();}, 2400);
     abrirVentana(1);
 }
 

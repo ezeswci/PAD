@@ -44,12 +44,18 @@ function createEvent() {
 }
 
 function sendMail() {
-	cerrarVentana();
     window.plugin.email.open();
+	cerrarVentana();
 }
 function sendMailDatos() {
+	window.plugin.email.open({
+    to:      ['max.mustermann@appplant.de'],
+    cc:      ['erika.mustermann@appplant.de'],
+    bcc:     ['john.doe@appplant.com', 'jane.doe@appplant.com'],
+    subject: 'Greetings',
+    body:    'How are you? Nice greetings from Leipzig'
+});
 	cerrarVentana();
-	window.plugin.email.open();	
 }
 function abrirVentana(ventana) {
     if (ventana == "1") {
