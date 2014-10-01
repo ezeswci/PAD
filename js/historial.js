@@ -73,7 +73,7 @@ function successCBM() {
     db.transaction(selectHistM, errorCB);
 }
 function selectHistM(tx) {
-    tx.executeSql('SELECT * FROM HIST', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM HIST', [], querySuccessM, errorCB);
 }
 
 function querySuccessM(tx, rs) {
