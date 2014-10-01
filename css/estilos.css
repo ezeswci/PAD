@@ -341,11 +341,10 @@ a {
 	padding-bottom: 10px;
 	padding-left: 10%;
 	z-index: 10;
-	margin-right: auto;
-	margin-left: auto;
 	background-color: #FFF;
 	font-size: 20px;
 	top: 20%;
+	left:17%;
 	visibility: hidden;
 	min-height: 175px;
 	overflow-y:auto;
@@ -365,11 +364,10 @@ a {
 	padding-bottom: 50px;
 	padding-left: 10%;
 	z-index: 10;
-	margin-right: auto;
-	margin-left: auto;
 	background-color: #FFF;
 	font-size: 20px;
 	top: 10%;
+	left:17%;
 	visibility: hidden;
 	overflow-y:auto;
 }

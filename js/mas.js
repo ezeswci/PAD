@@ -44,16 +44,23 @@ function createEvent() {
 }
 
 function sendMail() {
-    window.plugin.email.open();
+	window.plugin.email.open({
+    to:      [''],
+    cc:      [''],
+    bcc:     [''],
+    subject: '¡Te recomiendo esta aplicación!',
+    body:    'Quiero compartir contigo esta aplicación para que puedas controlar tu presión arterial. Descarga la app Mi Presión desde el store de tu teléfono.'
+});
 	cerrarVentana();
 }
 function sendMailDatos() {
+	var datos=document.getElementById("resumen_oculto").innerHTML;
 	window.plugin.email.open({
-    to:      ['max.mustermann@appplant.de'],
-    cc:      ['erika.mustermann@appplant.de'],
-    bcc:     ['john.doe@appplant.com', 'jane.doe@appplant.com'],
-    subject: 'Greetings',
-    body:    'How are you? Nice greetings from Leipzig'
+    to:      [''],
+    cc:      [''],
+    bcc:     [''],
+    subject: 'Mis Datos, App Presión',
+    body:    datos
 });
 	cerrarVentana();
 }
@@ -61,10 +68,7 @@ function abrirVentana(ventana) {
     if (ventana == "1") {
         document.getElementById("cartel").style.visibility = "visible";
         document.getElementById("fondo_negro").style.visibility = "visible";
-    }else if (ventana == "4") {
-        document.getElementById("cartel2").style.visibility = "visible";
-        document.getElementById("fondo_negro").style.visibility = "visible";
-    }  else {
+    } else {
         document.getElementById("cartel").style.visibility = "hidden";;
         document.getElementById("fondo_negro").style.visibility = "hidden";
     }
@@ -73,7 +77,6 @@ function abrirVentana(ventana) {
 
 function cerrarVentana() {
     document.getElementById("cartel").style.visibility = "hidden";
-	document.getElementById("cartel2").style.visibility = "hidden";
     document.getElementById("fondo_negro").style.visibility = "hidden";
 
 }
