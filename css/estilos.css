@@ -344,7 +344,10 @@ a {
 	background-color: #FFF;
 	font-size: 20px;
 	top: 20%;
-	left:17%;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 	visibility: hidden;
 	min-height: 175px;
 	overflow-y:auto;
@@ -367,7 +370,10 @@ a {
 	background-color: #FFF;
 	font-size: 20px;
 	top: 10%;
-	left:17%;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;	
 	visibility: hidden;
 	overflow-y:auto;
 }

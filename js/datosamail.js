@@ -52,15 +52,25 @@ function querySuccess(tx, rs) {
 
         var element = parseHistSelect(p.min, p.max, p.note, p.dd, p.mm, p.yy, p.hs, p.minut);
         //alert(element);
-        $(".historial").append(element);
+        $("#resumen_oculto").append(element);
     }
 }
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong></div></div>';
+    return 'Fecha: ' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg '+"\r\n";
     
 } else {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong> - Nota: ' + note + '</div></div>';
+    return 'Fecha:' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg - Nota: ' + note + "\r\n";
 }
+}
+function sendMailDatos() {
+	var datos=document.getElementById("resumen_oculto").innerHTML;
+	window.plugin.email.open({
+    to:      [''],
+    cc:      [''],
+    bcc:     [''],
+    subject: 'Mis Datos, App Presión',
+    body:    datos
+});
 }

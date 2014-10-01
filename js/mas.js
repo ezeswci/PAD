@@ -51,18 +51,6 @@ function sendMail() {
     subject: '¡Te recomiendo esta aplicación!',
     body:    'Quiero compartir contigo esta aplicación para que puedas controlar tu presión arterial. Descarga la app Mi Presión desde el store de tu teléfono.'
 });
-	cerrarVentana();
-}
-function sendMailDatos() {
-	var datos=document.getElementById("resumen_oculto").innerHTML;
-	window.plugin.email.open({
-    to:      [''],
-    cc:      [''],
-    bcc:     [''],
-    subject: 'Mis Datos, App Presión',
-    body:    datos
-});
-	cerrarVentana();
 }
 function abrirVentana(ventana) {
     if (ventana == "1") {
