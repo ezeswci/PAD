@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.swci.celTMD"
-        version   = "1.2.0">
+        version   = "1.0.0">
 
     <name>TMD</name>
 
@@ -58,7 +58,7 @@
         <gap:plugin name="com.phonegap.plugins.barcodescanner" /> -->
 	<gap:plugin name="nl.x-services.plugins.calendar" version="4.2.4" />
 	<gap:plugin name="de.appplant.cordova.plugin.email-composer" />
-    <gap:plugin name="com.plugin.datepicker"/>
+    <gap:plugin name="com.plugin.datepicker" version="0.3.2" />
 	<!-- End Third party plugins -->
 	<!-- Calendar plug in extenciones -->
 	<!-- for iOS -->
