@@ -8,18 +8,10 @@ body {
 	font-family: "Myriad Pro";
 	font-size: 12px;
 	color: #717174;
-	padding-right: 0px;
-	padding-left: 0px;
 	padding-top: 150px;
+	padding-right: 0px;
 	padding-bottom: 170px;
-}
-@media only screen and ( max-width: 600px )  {
-body {
-	
-	padding-top: 90px;
-	padding-bottom: 100px;
-}
-
+	padding-left: 0px;
 }
 a {
 	text-decoration: none;
@@ -47,15 +39,24 @@ a {
 	right: 50px;
 }
 .triangulo_inf {
-	width: 35px;
-	height: 17px;
+	width: 0;
+	height: 0;
 	margin-right: auto;
 	margin-left: auto;
+	border-top-width: 17px;
+	border-right-width: 20px;
+	border-left-width: 20px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #1D9C9E;
 	position: absolute;
 	left: 0px;
 	top: 140px;
 	right: 0px;
-	background-image: url(../img/triangulo_inf.fw.png);
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
+	border-left-color: #FFF;
 }
 @media only screen and ( max-width: 600px )  {
 
@@ -74,9 +75,6 @@ a {
 }
 .header.inicial .triangulo_inf {
 	top: 140px;
-	background-image: url(../img/triangulo_inf.fw.png);
-	height: 17px;
-	width: 35px;
 }
 .header .titulo {
 	top: 20px;
@@ -169,6 +167,7 @@ a {
 .------------------DATOS---------------{}
 .cuerpo2 {
 	width: 72%;
+	margin-top: 40px;
 	margin-right: auto;
 	margin-left: auto;
 	font-size: 45px;
@@ -194,29 +193,10 @@ a {
 	border-bottom-color: #6D6E71;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	padding-right: 3%;
-	padding-left: 3%;
+	padding-right: 20px;
+	padding-left: 20px;
 	text-align: center;
-	float: left;
-	width: 94%;
-	background-image: url(../img/flechita.jpg);
-	background-repeat: no-repeat;
-	background-position: 95% center;
 }
-.cuerpo2 .fecha #date {
-	width: 48%;
-	text-align: right;
-	float: left;
-	padding-right: 2%;
-}
-.cuerpo2 .fecha #time {
-	width: 48%;
-	float: left;
-	text-align: left;
-	padding-left: 2%;
-}
-
-
 
 .cuerpo2 .fecha .flechita {
 	float: right;
@@ -227,6 +207,7 @@ a {
 
 .cuerpo2 {
 	width: 95%;
+	margin-top: 10px;
 	margin-right: auto;
 	margin-left: auto;
 	font-size: 25px;
@@ -316,14 +297,14 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 125px;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
+	width: 100px;
+	 -moz-appearance: none;
+ -webkit-appearance: none;
+ appearance: none;
 	font-size: 14px;
 	color: #717174;
 	text-align: center;
-	background-color: #FFF;
+	background-color:#FFF;
 }
 
 
@@ -331,6 +312,7 @@ a {
 	background-color: #F7F8F8;
 	height: auto;
 	bottom: 0px;
+	margin-top: 58px;
 	margin-bottom: 0px;
 	float: left;
 	width: 100%;
@@ -339,7 +321,7 @@ a {
 	border-top-color: #D1D2D4;
 	text-align: center;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom:10px;
 	position: fixed;
 }
 
@@ -368,11 +350,11 @@ a {
 	right: 0;
 	visibility: hidden;
 	min-height: 175px;
-	overflow-y: auto;
+	overflow-y:auto;
 }
 #cartel #x {
 	float: right;
-	margin-top: -3px;
+	margin-top: -40px;
 	margin-right: -10%;
 	height: 35px;
 	width: 35px;
@@ -495,46 +477,23 @@ a {
 .cuerpo .grafico img {
 	width: 100%;
 	height: auto;
-}
-
-.subtitulo {
-	font-size: 30px;
-	text-align: left;
+}.subtitulo {
+	font-size: 20px;
+	text-align: center;
 	font-weight: bold;
-	width: 80%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: -15px;
-}
-.cuerpo80 {
-	width: 80%;
-	margin-top: 40px;
+	width: 90%;
 	margin-right: auto;
 	margin-left: auto;
 }
-
-.cuerpo80 .info {
-	font-size: 24px;
-}
-@media only screen and ( max-width: 600px )  {
-.cuerpo80 .info {
-	font-size: 18px;
-}
-.subtitulo {
-	font-size: 25px;
-
-}
-
-}
-.cuerpo80 .verde {
+.cuerpo .verde {
 	font-weight: bold;
 	color: #72AB6B;
 }
-.cuerpo80 .rojo {
+.cuerpo .rojo {
 	font-weight: bold;
 	color: #C54746;
 }
-.cuerpo80 .amarillo {
+.cuerpo .amarillo {
 	font-weight: bold;
 	color: #FDF172;
 }
@@ -587,16 +546,16 @@ a {
 	margin-left: auto;
 }
 .cuerpo_mas .item {
-	padding-top: 30px;
+	padding-top: 20px;
 	padding-right: 20px;
 	padding-bottom: 30px;
 	padding-left: 30px;
-	font-size: 21px;
+	font-size: 23px;
 	background-color: #F7F9F8;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
 	border-bottom-color: #D1D2D4;
-	height: 30px;
+	height:40px;
 }
 .cuerpo_mas .item .txt {
 	width:80%;
