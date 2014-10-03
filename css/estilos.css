@@ -485,7 +485,6 @@ a {
 	padding-left: 30px;
 }
 .cuerpo .grafico {
-	position:relative;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 40px;
@@ -493,10 +492,9 @@ a {
 	max-width: 530px;
 	height: auto;
 }
-.cuerpo .grafico .explicacion {
-	position:absolute;
-	top:50px;
-	right:10px;
+.cuerpo .explicacion {
+	float:right;
+	margin-bottom:-100px;
 }
 .cuerpo .grafico img {
 	width: 100%;
