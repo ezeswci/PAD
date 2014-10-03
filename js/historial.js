@@ -90,19 +90,18 @@ function querySuccessM(tx, rs) {
 
 function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return 'Fecha: ' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg '+"\r\n";
+    return dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
     
 } else {
-    return 'Fecha:' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' -- Medido:' + max + ' / ' + min + ' mmHg - Nota: ' + note + "\r\n";
+    return dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
 }
 }
 function sendMailDatos() {
-	var datos=document.getElementById("resumen_oculto").innerHTML;
+	var datos="data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	datos+=document.getElementById("resumen_oculto").innerHTML;
+	var enc = window.btoa(datos);
 	window.plugin.email.open({
-    to:      [''],
-    cc:      [''],
-    bcc:     [''],
-    subject: 'Mis Datos, App Presión',
-    body:    datos
+	subject:     'Mis Datos, App Presión',
+    attachments: ['base64:misdatospresion.csv//'+enc+'/...']
 });
 }

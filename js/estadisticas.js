@@ -225,6 +225,15 @@ function drawGraph() {
         .attr('class', 'y axis')
         .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
         .call(yAxis);
+		
+		vis.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 )
+        .attr("x", -HEIGHT/2 )
+        .attr("dy", "1em")
+        .text("mmHg");
 
     var lineFunc = d3.svg.line()
         .x(function (d) {
