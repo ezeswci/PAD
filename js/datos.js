@@ -217,10 +217,8 @@ function initClickCB() {
                 var hourAuxString = timeParser(hs, minut);
                 $("#date").text(dateAuxString);
                 $("#time").text(hourAuxString);
-            });
-			
+            });	
         }
-		
 		);
 
     $("#time").click(

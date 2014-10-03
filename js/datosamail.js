@@ -70,6 +70,6 @@ function sendMailDatos() {
 	var enc = window.btoa(datos);
 	window.plugin.email.open({
 	subject:     'Mis Datos, App Presión',
-    attachments: ['base64:misdatospresion.csv//'+enc+'/...']
+    attachments: ['base64:misdatospresion.csv//'+enc]
 });
 }

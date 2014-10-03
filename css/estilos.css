@@ -320,7 +320,7 @@ a {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	font-size: 14px;
+	font-size: 8px;
 	color: #717174;
 	text-align: center;
 	background-color: #FFF;
@@ -485,12 +485,18 @@ a {
 	padding-left: 30px;
 }
 .cuerpo .grafico {
+	position:relative;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 40px;
 	width: 90%;
 	max-width: 530px;
 	height: auto;
+}
+.cuerpo .grafico .explicacion {
+	position:absolute;
+	top:50px;
+	right:10px;
 }
 .cuerpo .grafico img {
 	width: 100%;
