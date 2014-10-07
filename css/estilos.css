@@ -191,7 +191,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	font-size: 42px;
+	font-size: 25px;
 	width: 70px;
 	text-align: center;
 	color: #717174;
@@ -604,6 +604,7 @@ a {
 	padding-left: 10px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top:40px;
 }
 .------------------MAS---------------{}
 

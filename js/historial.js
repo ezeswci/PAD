@@ -59,12 +59,12 @@ function querySuccess(tx, rs) {
 function colorMaxHist(val){
 if(val<140){return '#0F0'}
 else if(val>140){return "#F00"}
-else{return "#FF0"}}
+else{return "#FC3"}}
 
 function colorMinHist(val){
 if(val<90){return '#0F0'}
 else if(val>90){return "#F00"}
-else{return "#FF0"}}
+else{return "#FC3"}}
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
