@@ -123,7 +123,7 @@ function verif() {
     var time = $("#time").text();
 
     if (!($.isNumeric(max)) || !($.isNumeric(min))) {
-        alert("MAX y MIN deben ser valores numericos.");
+        alert("MAX y MIN deben ser valores numéricos.");
         return false;
     }
     if (date == "dd-mm-aa") {
@@ -214,9 +214,9 @@ function initClickCB() {
                 var yy = d.getFullYear();
 
                 var dateAuxString = dateParser(dd, mm, yy);
-                var hourAuxString = timeParser(hs, minut);
+                //var hourAuxString = timeParser(hs, minut);
                 $("#date").text(dateAuxString);
-                $("#time").text(hourAuxString);
+                //$("#time").text(hourAuxString);
             });	
         }
 		);
@@ -232,15 +232,15 @@ function initClickCB() {
             datePicker.show(options, function (date) {
 
                 d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
-                var dd = d.getDate();
-                var mm = d.getMonth();
-                var yy = d.getFullYear();
+                //var dd = d.getDate();
+                //var mm = d.getMonth();
+                //var yy = d.getFullYear();
                 var hs = d.getHours();
                 var minut = d.getMinutes();
 
-                var dateAuxString = dateParser(dd, mm, yy);
+                //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
-                $("#date").text(dateAuxString);
+                //$("#date").text(dateAuxString);
                 $("#time").text(hourAuxString);
             });
         });

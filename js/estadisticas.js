@@ -231,9 +231,9 @@ function drawGraph() {
         .attr("text-anchor", "end")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 )
-        .attr("x", -HEIGHT/2 )
+        .attr("x", -100 )
         .attr("dy", "1em")
-        .text("mmHg");
+        .text("Presión Arterial (mmHg)");
 
     var lineFunc = d3.svg.line()
         .x(function (d) {
@@ -380,5 +380,6 @@ function mostrarDatos() {
 
 function dateParser(dd, mm, yy, hs, minut) {
     mm = mm + 1;
-    return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
+    return dd + "-" + mm + "-" + yy;
+	//return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
 }

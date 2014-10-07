@@ -16,13 +16,13 @@
     <div class="header">
         <div class="triangulo_inf"></div>
         <div class="titulo">MI PRESI&Oacute;N ARTERIAL
-                <img class="i" src="img/I.jpg" width="40" height="40" />
+                <img class="i" src="img/I.jpg" width="25" height="25" />
         </div>
     </div>
 
     <div id="cartel" class="cartel">
         <div onclick="cleanForm();" id="x">
-            <img src="img/x.jpg" width="35" height="35" />
+            <!--<img src="img/x.jpg" width="35" height="35" />-->
         </div>
         <strong>¡Muy bien!</strong>
         <br />Has cargado tus valores
@@ -40,32 +40,34 @@
 
     <div class="cuerpo2">
         <!--        CALENDARIO / RELOJ      -->
+        <div class="main">
         <div class="fecha">
             <div id="date">dd-mm-aa</div>
             <div id="time">hh:mm</div>
 <!--            <img class="flechita" src="img/flechita.jpg" width="23" height="20" />-->
         </div>
+        </div>
 
         <div class="main">
             <div class="item">MAX:
-                <input name="max" type="text" id="max" value="---" />mmHg
+                <input name="max" type="number" id="max" placeholder="---" />mmHg
                 <div id="aclaracion_max">Este valor esta fuera de rango</div>
             </div>
         </div>
         <div class="main">
             <div class="item">MIN:
-                <input name="min" type="text" id="min" value="---" />mmHg
+                <input name="min" type="number" id="min" placeholder="---" />mmHg
                 <div id="aclaracion_min">Este valor esta fuera de rango</div>
             </div>
         </div>
         <div class="main">
             <div class="item">Nota:
       <select name="note" id="note">
-        <option value="---">---</option>
+        <option value="---">Ninguna</option>
         <option>Con medicación</option>
         <option>Sin medicación</option>
-        <option>Comi con sal</option>
-        <option>Comi con poca sal</option>
+        <option>Comí con sal</option>
+        <option>Comí con poca sal</option>
       </select>
             </div>
         </div>

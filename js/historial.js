@@ -56,13 +56,22 @@ function querySuccess(tx, rs) {
         $(".historial").append(element);
     }
 }
+function colorMaxHist(val){
+if(val<140){return '#0F0'}
+else if(val>140){return "#F00"}
+else{return "#FF0"}}
+
+function colorMinHist(val){
+if(val<90){return '#0F0'}
+else if(val>90){return "#F00"}
+else{return "#FF0"}}
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong></div></div>';
+    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' Hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong></div></div>';
     
 } else {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + '</div><strong>' + max + ' / ' + min + ' mmHg</strong> - Nota: ' + note + '</div></div>';
+    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' Hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong> - Nota: ' + note + '</div></div>';
 }
 }
 // Email
@@ -101,7 +110,8 @@ function sendMailDatos() {
 	datos+=document.getElementById("resumen_oculto").innerHTML;
 	var enc = window.btoa(datos);
 	window.plugin.email.open({
-	subject:     'Mis Datos, App Presión',
+	subject:     'Mi Historial',
+	body:    'Quiero compartir contigo mi historial de presión arterial.'+"\r\n \r\n \r\n"+' Esta información fue compartida desde la aplicación “Mi Presión”, una herramienta de Tu Medicina Digital. ',
     attachments: ['base64:misdatospresion.csv//'+enc]
 });
 }
