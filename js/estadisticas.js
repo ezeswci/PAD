@@ -208,7 +208,9 @@ function drawGraph() {
         .tickSize(3)
         .orient('left')
         .tickSubdivide(true);
-
+	// Grosor
+	vis.style("stroke-width", 1);
+	
     vis.append('svg:g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')

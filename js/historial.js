@@ -58,17 +58,17 @@ function querySuccess(tx, rs) {
 }
 function colorMaxHist(val){
 if(val<140){return '#0F0'}
-else if(val>140){return "#F00"}
+else if(val>140){return "#72AB6B"}
 else{return "#FC3"}}
 
 function colorMinHist(val){
 if(val<90){return '#0F0'}
-else if(val>90){return "#F00"}
+else if(val>90){return "#72AB6B"}
 else{return "#FC3"}}
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' Hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong></div></div>';
+    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + 'hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong></div></div>';
     
 } else {
     return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' Hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong> - Nota: ' + note + '</div></div>';
@@ -106,7 +106,7 @@ if(note == "" || note == null || note == "---") {
 }
 }
 function sendMailDatos() {
-	var datos="data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	var datos="";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
 	var enc = window.btoa(datos);
 	window.plugin.email.open({

@@ -134,6 +134,10 @@ function verif() {
         alert("Debes ingresar una hora valida.");
         return false;
     }
+	if (note == null) {
+        alert("El campo Notas no puede quedar vacio, ingrese una opción");
+        return false;
+    }
 
     if (max == "" || min == "" || max == "---" || min == "---" || max == null || min == null) {
         $("#aclaracion_max").show();

@@ -38,6 +38,7 @@ a {
 
 
 .header {
+	font-family: 'MyriadPro Regular';
 	background-color: #1D9C9E;
 	height: 67px;
 	width: 100%;
@@ -126,7 +127,7 @@ a {
 	margin-left: auto;
 }
 .cuerpo .info {
-	font-size: 12px;
+	font-size: 13px;
 }
 
 
@@ -138,6 +139,14 @@ a {
 	display:block;
 	text-align: justify;
     text-justify: inter-word;
+}
+.cuerpo .item.menos {
+	margin-top:10px;
+	margin-bottom: 15px;
+}
+.cuerpo .item.last {
+	margin-top:0px;
+	margin-bottom: 10px;
 }
 
 .cuerpo .item img {
@@ -167,9 +176,9 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 	margin-top:10px;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
-	width: 110px;
+	width: 90px;
 	padding-top: 14px;
 	padding-bottom: 14px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -184,8 +193,12 @@ a {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 22px;
+	font-size: 16px;
 }
+.cuerpo2 .main .item.first {
+	margin-top:30px;
+}
+
 .cuerpo2 .main .item input {
 	border-top-style: none;
 	border-right-style: none;
@@ -203,6 +216,7 @@ a {
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:20px;
+	margin-bottom:30px;
 	border-top-width: 2px;
 	border-bottom-width: 2px;
 	border-top-style: solid;
@@ -277,11 +291,14 @@ a {
 	text-align: center;
 	margin-top: 50px;
 }
+.cuerpo2 .main.first {
+	margin-top: 100px;
+}
 .cuerpo2 .item.boton {
-	width: 250px;
+	width: 210px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 20px;
+	margin-top: 60px;
 	margin-bottom: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
@@ -291,13 +308,13 @@ a {
 	background-color: #4F535C;
 	border: 1px solid #29898D;
 	color: #FFF;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
 	padding-top: 14px;
 	padding-bottom: 14px;
 	margin-right: 10px;
 	float: left;
-	width: 110px;
+	width: 90px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
@@ -306,7 +323,7 @@ a {
 }
 
 
-#aclaracion_max, #aclaracion_min {
+#aclaracion_max, #aclaracion_min, #aclaracion_nota {
 	color: #F71628;
 	font-size: 18px;
 	height: 22px;
@@ -333,11 +350,11 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 125px;
+	width: 155px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	font-size: 11px;
+	font-size: 13px;
 	color: #717174;
 	text-align: center;
 	background-color: #FFF;
@@ -377,7 +394,7 @@ a {
 	padding-left: 10%;
 	z-index: 10;
 	background-color: #FFF;
-	font-size: 20px;
+	font-size: 14px;
 	top: 20%;
 	margin-left: auto;
 	margin-right: auto;
@@ -435,11 +452,11 @@ a {
 .------------------ESTADISTICAS---------------{}
 .header.blanco {
 	background-color: #FFFFFF;
-	height: 70px;
+	height: 50px;
 	width: 100%;
 	color: #5A5A5E;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 
@@ -502,7 +519,7 @@ a {
 }*/
 
 .cuerpo .mediciones {
-	/*font-size: 16px;*/
+	font-size: 14px;
 	margin-bottom: 10px;
 	padding-left: 30px;
 }
@@ -524,7 +541,7 @@ a {
 }
 
 .subtitulo {
-	font-size: 18px;
+	font-size: 15px;
 	text-align: left;
 	font-weight: bold;
 	width: 80%;
@@ -562,14 +579,14 @@ a {
 }
 .cuerpo80 .amarillo {
 	font-weight: bold;
-	color: #FDF172;
+	color: #FC3;
 }
 .------------------HISTORIAL---------------{}
 
 .header .titulo .historial_logo {
 	position: absolute;
 	left: 10px;
-	top: 5px;
+	top: 20px;
 }
 .historial_item {
 	width: 100%;
@@ -584,7 +601,7 @@ a {
 	width: 450px;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 20px;
+	font-size: 14px;
 	text-align: left;
 }
 /*

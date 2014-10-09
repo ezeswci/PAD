@@ -21,26 +21,17 @@ var error = function (message) {
 function onDeviceReady() {
     initClickCB();
 }
-
-function createEvent() {
-
-    var options = {
-        date: new Date(),
-        mode: 'date'
-    };
-
-    datePicker.show(options, function (date) {
-		cerrarVentana();
-        var dd = date.getDate();
-        var mm = date.getMonth();
-        var yy = date.getFullYear();
-
-        startDate = new Date(yy, mm, dd, 0, 0, 0, 0, 0);
-        endDate = new Date(yy, mm, dd + 1, 0, 0, 0, 0, 0);
-        
+function agendarEvento() {
+		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
+        endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
         window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
-    });
+}
 
+function createEvent() {	
+		document.addEventListener("deviceready", elejirDia, false);
+		document.addEventListener("deviceready", elejirHora, false);
+		 document.addEventListener("deviceready", agendarEvento, false);		
+		
 }
 
 function sendMail() {
@@ -79,3 +70,30 @@ function initClickCB() {
     $("#x").click(cerrarVentana);
 
 }
+function elejirDia () {
+            var options = {
+                date: new Date(),
+                mode: 'date'
+            };
+
+            datePicker.show(options, function (date) {
+
+                d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+                window.dd = d.getDate();
+                window.mm = d.getMonth();
+                window.yy = d.getFullYear();
+                var dateAuxString = dateParser(dd, mm, yy);
+                $("#date").text(dateAuxString);
+            });	
+        }
+function elejirHora () {
+            var options = {
+                date: new Date(),
+                mode: 'time'
+            };
+            datePicker.show(options, function (date) {
+                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                window.hs = d.getHours();
+                window.minut = d.getMinutes();
+            });
+        }
