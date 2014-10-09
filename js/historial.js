@@ -57,13 +57,13 @@ function querySuccess(tx, rs) {
     }
 }
 function colorMaxHist(val){
-if(val<140){return '#0F0'}
-else if(val>140){return "#72AB6B"}
+if(val<140){return '#72AB6B'}
+else if(val>140){return "#C54746"}
 else{return "#FC3"}}
 
 function colorMinHist(val){
-if(val<90){return '#0F0'}
-else if(val>90){return "#72AB6B"}
+if(val<90){return '#72AB6B'}
+else if(val>90){return "#C54746"}
 else{return "#FC3"}}
 
 function parseHistSelect(min, max, note, dd, mm, yy, hs, minut) {
@@ -106,7 +106,7 @@ if(note == "" || note == null || note == "---") {
 }
 }
 function sendMailDatos() {
-	var datos="";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	var datos="fecha, medición, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
 	var enc = window.btoa(datos);
 	window.plugin.email.open({

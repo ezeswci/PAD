@@ -27,10 +27,13 @@ function agendarEvento() {
         window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
 }
 
-function createEvent() {	
+function createEvent() {
+	cerrarVentana();
+	document.addEventListener("deviceready", agendarEvento, false);
+	document.addEventListener("deviceready", elejirHora, false);	
 		document.addEventListener("deviceready", elejirDia, false);
-		document.addEventListener("deviceready", elejirHora, false);
-		 document.addEventListener("deviceready", agendarEvento, false);		
+		
+		 		
 		
 }
 
