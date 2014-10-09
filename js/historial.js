@@ -71,7 +71,7 @@ if(note == "" || note == null || note == "---") {
     return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + 'hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong></div></div>';
     
 } else {
-    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + ' Hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong> - Nota: ' + note + '</div></div>';
+    return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + mm + '-' + yy + ' ' + hs + ':' + minut + 'hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong> - Nota: ' + note + '</div></div>';
 }
 }
 // Email
