@@ -11,7 +11,7 @@ function onDeviceReady() {
     var dbName = "TMD";
     var dbVersion = "1.0";
     var dbDisplayName = "TMDDatabase";
-	alert("Empieza");
+
     //Init DB
     //
     db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
@@ -97,21 +97,21 @@ function querySuccessM(tx, rs) {
     }
 }
 function parMes(mes){
-	if(mes==1){return 'ene';}
-	if(mes==2){return 'feb';}
-	if(mes==3){return 'mar';}
-	if(mes==4){return 'abr';}
-	if(mes==5){return 'may';}
-	if(mes==6){return 'jun';}
-	if(mes==7){return 'jul';}
-	if(mes==8){return 'ago';}
-	if(mes==9){return 'sep';}
-	if(mes==10){return 'oct';}
-	if(mes==11){return 'nov';}
-	if(mes==12){return 'dic';}
+	if(mes==1){return '"ene"';}
+	if(mes==2){return '"feb"';}
+	if(mes==3){return '"mar"';}
+	if(mes==4){return '"abr"';}
+	if(mes==5){return '"may"';}
+	if(mes==6){return '"jun"';}
+	if(mes==7){return '"jul"';}
+	if(mes==8){return '"ago"';}
+	if(mes==9){return '"sep"';}
+	if(mes==10){return '"oct"';}
+	if(mes==11){return '"nov"';}
+	if(mes==12){return '"dic"';}
 }
 function parAno(ano){
-	return (ano-2000);
+	return ano.substr(2, 3)
 }
 function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {

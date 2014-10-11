@@ -379,9 +379,25 @@ function initClickCB() {
 function mostrarDatos() {
     
 }
-
+function parMes(mes){
+	if(mes==1){return 'ene';}
+	if(mes==2){return 'feb';}
+	if(mes==3){return 'mar';}
+	if(mes==4){return 'abr';}
+	if(mes==5){return 'may';}
+	if(mes==6){return 'jun';}
+	if(mes==7){return 'jul';}
+	if(mes==8){return 'ago';}
+	if(mes==9){return 'sep';}
+	if(mes==10){return 'oct';}
+	if(mes==11){return 'nov';}
+	if(mes==12){return 'dic';}
+}
+function parAno(ano){
+	return (ano-2000);
+}
 function dateParser(dd, mm, yy, hs, minut) {
     mm = mm + 1;
-    return dd + "-" + mm + "-" + yy;
+    return dd + "-" + parMes(mm) + "-" + parAno(yy);
 	//return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
 }

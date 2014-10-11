@@ -9,12 +9,12 @@
          url('helvetica-neue-medium.svg#helvetica-neue-medium') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  font-family: 'MyriadPro Regular';
+  font-family: 'NeutraText-BookAlt';
   font-style: normal;
   font-weight: normal;
-  src: url('MyriadPro-Regular.eot'); /* IE9 Compat Modes */
-  src: url('helvetica-neue-medium?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('MyriadPro-Regular.woff') format('woff'), /* Modern Browsers */
-         url('MyriadPro-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('MyriadPro-Regular.svg#MyriadPro-Regular') format('svg'); /* Legacy iOS */
+  src: url('NeutraText-BookAlt.eot'); /* IE9 Compat Modes */
+  src: url('NeutraText-BookAlt?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('NeutraText-BookAlt.woff') format('woff'), /* Modern Browsers */
+         url('NeutraText-BookAlt.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('NeutraText-BookAlt.svg#NeutraText-BookAlt') format('svg'); /* Legacy iOS */
 }

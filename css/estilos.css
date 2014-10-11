@@ -38,7 +38,7 @@ a {
 
 
 .header {
-	font-family: 'MyriadPro Regular';
+	font-family: 'NeutraText-BookAlt';
 	background-color: #1D9C9E;
 	height: 67px;
 	width: 100%;
@@ -117,22 +117,17 @@ a {
 	left: 0px;
 	right: 0px;
 }
-
-
-
 .cuerpo {
 	width: 95%;
-	margin-top: 35px;
+	margin-top: 10px;
 	margin-right: auto;
 	margin-left: auto;
 }
 .cuerpo .info {
-	font-size: 13px;
+	font-size: 12px;
 }
-
-
 .cuerpo .item {
-	margin-top:15px;
+	margin-top:12px;
 	margin-bottom: 20px;
 	width: 100%;
 	font-size: 11px;
@@ -141,12 +136,12 @@ a {
     text-justify: inter-word;
 }
 .cuerpo .item.menos {
-	margin-top:10px;
-	margin-bottom: 15px;
+	margin-top:5px;
+	margin-bottom: 5px;
 }
 .cuerpo .item.last {
-	margin-top:0px;
-	margin-bottom: 10px;
+	margin-top:5px;
+	margin-bottom: 5px;
 }
 
 .cuerpo .item img {
@@ -184,8 +179,9 @@ a {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
-
-
+.cuerpo .boton.inicio {
+	margin-top:0px;
+}
 
 
 .------------------DATOS---------------{}
@@ -193,7 +189,7 @@ a {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 16px;
+	font-size: 12px;
 }
 .cuerpo2 .main .item.first {
 	margin-top:30px;
@@ -204,7 +200,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	font-size: 25px;
+	font-size: 28px;
 	width: 70px;
 	text-align: center;
 	color: #717174;
@@ -289,7 +285,7 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 25px;
 }
 .cuerpo2 .main.first {
 	margin-top: 100px;
@@ -325,7 +321,7 @@ a {
 
 #aclaracion_max, #aclaracion_min, #aclaracion_nota {
 	color: #F71628;
-	font-size: 18px;
+	font-size: 16px;
 	height: 22px;
 }
 .cuerpo2 .main.error .item input {
@@ -350,7 +346,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 155px;
+	width: 185px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
@@ -477,7 +473,7 @@ a {
 }
 .estadisticas-menu .item {
 	height: 20px;
-	width: 18%;
+	width: 19%;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: center;
@@ -541,13 +537,13 @@ a {
 }
 
 .subtitulo {
-	font-size: 15px;
+	font-size: 16px;
 	text-align: left;
 	font-weight: bold;
 	width: 80%;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 70px;
+	margin-top: 50px;
 }
 .cuerpo80 {
 	width: 80%;
@@ -557,7 +553,7 @@ a {
 }
 
 .cuerpo80 .info {
-	font-size: 14px;
+	font-size: 12px;
 }/*
 @media only screen and ( max-width: 600px )  {
 .cuerpo80 .info {
@@ -601,7 +597,7 @@ a {
 	width: 90%;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 14px;
+	font-size: 12px;
 	text-align: left;
 }
 /*
@@ -636,7 +632,7 @@ a {
 	padding-right: 20px;
 	padding-bottom: 20px;
 	padding-left: 30px;
-	font-size: 18px;
+	font-size: 16px;
 	background-color: #F7F9F8;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
@@ -656,7 +652,7 @@ a {
 }
 
 #cartel .botones {
-	bottom: 20px;
+	bottom: 14px;
 	position: absolute;
 	left: 0px;
 	right: 0px;
@@ -673,7 +669,7 @@ a {
 	background-color: #4F535C;
 	border: 1px solid #3D9993;
 	color: #FFF;
-	font-size: 15px;
+	font-size: 14px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);

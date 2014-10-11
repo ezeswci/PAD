@@ -211,15 +211,24 @@ function initClickCB() {
             };
 
             datePicker.show(options, function (date) {
+				
+				var ddd = date.getDate();
+                var mmm = date.getMonth();
+                var yyy = date.getFullYear();
 
                 d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
                 var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
+				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
+					var dateAuxString = dateParser(ddd, mmm, yyy);
+					$("#date").text(dateAuxString);
+					alert("No es posible ingresar fechas del futuro");
+				}else{
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-                $("#date").text(dateAuxString);
+                $("#date").text(dateAuxString);}
                 //$("#time").text(hourAuxString);
             });	
         }
