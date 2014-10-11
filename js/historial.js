@@ -115,14 +115,14 @@ function parAno(ano){
 }
 function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
+    return ' ,'+dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
     
 } else {
-    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
+    return ' ,'+dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
 }
 }
 function sendMailDatos() {
-	var datos="fecha, medicion, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	var datos="charset=utf-8,fecha, medición, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
 	var enc = window.btoa(datos);
 	window.plugin.email.open({
