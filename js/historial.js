@@ -115,19 +115,37 @@ function parAno(ano){
 }
 function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
 if(note == "" || note == null || note == "---") {
-    return ' ,'+dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
+    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
     
 } else {
-    return ' ,'+dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
+    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
 }
 }
 function sendMailDatos() {
-	var datos="charset=utf-8,fecha, medición, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	var datos="fecha, medicion, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
+	datos=chauTildes(datos);
 	var enc = window.btoa(datos);
 	window.plugin.email.open({
 	subject:     'Mi Historial',
 	body:    'Quiero compartir contigo mi historial de presión arterial.'+"\r\n \r\n \r\n"+' Esta información fue compartida desde la aplicación “Mi Presión”, una herramienta de Tu Medicina Digital. ',
     attachments: ['base64:misdatospresion.csv//'+enc]
 });
+}
+function chauTildes(name){
+    // the characters i'm looking for in a string:
+    var charList = ["á","é","í","ó","ú"];
+
+    // the characters i'd like to replace them with:
+    var replaceList = ["a","e","i","o","u"];
+
+    var limit = name.length;
+    for (i = 0; i < limit; i++){
+        for(var j in charList){
+            if (name.charAt(i) === charList[j])
+    name = name.replace(name.charAt(i), replaceList[j]);
+        }
+    }
+
+    return name;
 }
