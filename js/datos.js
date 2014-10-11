@@ -211,10 +211,10 @@ function initClickCB() {
             };
 
             datePicker.show(options, function (date) {
-				
-				var ddd = date.getDate();
-                var mmm = date.getMonth();
-                var yyy = date.getFullYear();
+				var aux= new Date();
+				var ddd = aux.getDate();
+                var mmm = aux.getMonth();
+                var yyy = aux.getFullYear();
 
                 d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
                 var dd = d.getDate();
