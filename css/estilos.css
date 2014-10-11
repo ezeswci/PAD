@@ -123,6 +123,9 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 }
+.cuerpo.inicial {
+	margin-top: 45px;
+}
 .cuerpo .info {
 	font-size: 12px;
 }

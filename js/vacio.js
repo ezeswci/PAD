@@ -51,6 +51,8 @@ function querySuccess(tx, rs) {
     // this will be empty since no rows were inserted.
 	//alert(rs.rows.length);
 	if(rs.rows.length>0){
-		window.location = "datos.html";
+		//window.location = "datos.html";
+	}else{
+		window.location = "inicial.html";
 	}
 }

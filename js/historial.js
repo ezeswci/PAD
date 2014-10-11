@@ -11,7 +11,7 @@ function onDeviceReady() {
     var dbName = "TMD";
     var dbVersion = "1.0";
     var dbDisplayName = "TMDDatabase";
-	alert("Empieza");
+	//alert("Empieza");
     //Init DB
     //
     db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
