@@ -220,7 +220,7 @@ function initClickCB() {
                 var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
-				alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
+				//alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
 				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
 					var dateAuxString = dateParser(ddd, mmm, yyy);
 					$("#date").text(dateAuxString);

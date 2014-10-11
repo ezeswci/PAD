@@ -122,7 +122,7 @@ if(note == "" || note == null || note == "---") {
 }
 }
 function sendMailDatos() {
-	var datos="fecha, medicion, nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
+	var datos="Fecha, Medicion, Nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
 	datos=chauTildes(datos);
 	var enc = window.btoa(datos);
