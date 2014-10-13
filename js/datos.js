@@ -228,7 +228,6 @@ function initClickCB() {
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
 				//alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
-				if (!(!($.isNumeric(dd)) || !($.isNumeric(mm)))){
 				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
 					var dateAuxString = dateParser(ddd, mmm, yyy);
 					$("#date").text(dateAuxString);
@@ -237,7 +236,7 @@ function initClickCB() {
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-                $("#date").text(dateAuxString);}}
+                $("#date").text(dateAuxString);}
                 //$("#time").text(hourAuxString);
             });	
         }
@@ -260,11 +259,10 @@ function initClickCB() {
                 var hs = d.getHours();
                 var minut = d.getMinutes();
 				
-				if (!(!($.isNumeric(minut)) || !($.isNumeric(hs)))){
                 //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
-                $("#time").text(hourAuxString);}
+                $("#time").text(hourAuxString);
             });
         });
 }
