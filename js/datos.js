@@ -236,8 +236,8 @@ function initClickCB() {
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-				
-                $("#date").text(dateAuxString);}}
+				if(dd!=null){
+                $("#date").text(dateAuxString);}}}
                 //$("#time").text(hourAuxString);
             );	
         }
@@ -263,7 +263,8 @@ function initClickCB() {
                 //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
-                $("#time").text(hourAuxString);
+				if(hs!=null){
+                $("#time").text(hourAuxString);}
             });
         });
 }
