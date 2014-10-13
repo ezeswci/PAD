@@ -236,10 +236,10 @@ function initClickCB() {
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-				if(dd!=null){
+				
                 $("#date").text(dateAuxString);}}
                 //$("#time").text(hourAuxString);
-            });	
+            );	
         }
 		);
 
@@ -263,8 +263,7 @@ function initClickCB() {
                 //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
-				if(hs!=null){
-                $("#time").text(hourAuxString);}
+                $("#time").text(hourAuxString);
             });
         });
 }
