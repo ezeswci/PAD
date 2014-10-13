@@ -126,7 +126,7 @@ function successCB() {
 }
 
 function selectHist(tx) {
-    tx.executeSql('SELECT * FROM HIST', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM HIST ORDER BY yy,mm,dd,hs,minut', [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, rs) {
@@ -157,8 +157,9 @@ function buildGraphHist(rs) {
         maxTemp.yy = p.yy;
         maxTemp.hs = p.hs;
         maxTemp.minut = p.minut;
-
-        minTemp.y = p.min;
+		
+		if(p.max==p.min){minTemp.y = p.min-7;}
+        else{minTemp.y = p.min;}
         minTemp.x = i;
         minTemp.dd = p.dd;
         minTemp.mm = p.mm;
@@ -392,12 +393,13 @@ function parMes(mes){
 	if(mes==10){return 'oct';}
 	if(mes==11){return 'nov';}
 	if(mes==12){return 'dic';}
+	alert("Mes:"+mes);
 }
 function parAno(ano){
 	return (ano-2000);
 }
 function dateParser(dd, mm, yy, hs, minut) {
-    mm = mm + 1;
+    //mm = mm + 1; No entiendo para que agregas esto
     return dd + "-" + parMes(mm) + "-" + parAno(yy);
 	//return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
 }

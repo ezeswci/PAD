@@ -53,7 +53,38 @@ a {
 }
 .header .titulo .i {
 	position: absolute;
-	top: 25px;
+	top: 28px;
+	right: 10px;
+}
+.header_publi {
+	background-color: #FFF;
+	height: 70px;
+	width: 100%;
+	top: 0px;
+	position: fixed;
+}
+.header_publi .wrapper {
+	width: 350px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.header_carga {
+	font-family: 'NeutraText-BookAlt';
+	background-color: #1D9C9E;
+	height: 50px;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font-size: 18px;
+	position: fixed;
+	top: 70px;
+}.header_carga .titulo {
+	top: 18px;
+	padding-top: 18px;
+}
+.header_carga .titulo .i {
+	position: absolute;
+	top: 15px;
 	right: 10px;
 }
 .triangulo_inf {
@@ -64,6 +95,17 @@ a {
 	position: absolute;
 	left: 0px;
 	top: 67px;
+	right: 0px;
+	background-image: url(../img/triangulo_inf.fw.png);
+}
+.triangulo_inf2 {
+	width: 20px;
+	height: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	position: absolute;
+	left: 0px;
+	top: 50px;
 	right: 0px;
 	background-image: url(../img/triangulo_inf.fw.png);
 }
@@ -122,15 +164,16 @@ a {
 	margin-top: 10px;
 	margin-right: auto;
 	margin-left: auto;
+	max-width:500px;
 }
 .cuerpo.inicial {
 	margin-top: 35px;
 }
 .cuerpo .info {
-	font-size: 12px;
+	font-size: 14px;
 }
 .cuerpo .item {
-	margin-top:12px;
+	margin-top:10px;
 	margin-bottom: 20px;
 	width: 100%;
 	font-size: 11px;
@@ -149,14 +192,14 @@ a {
 
 .cuerpo .item img {
 	height: auto;
-	width: 20%;
+	width: 16%;
 	max-width: 122px;
 }
 
 .cuerpo .item .texto {
 	float: right;
 	height: auto;
-	width: 78%;
+	width: 80%;
 	margin-top: 10px;
 }
 
@@ -164,7 +207,7 @@ a {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 12px;
+	font-size: 14px;
 	margin-top:10px;
 }
 .cuerpo .boton {
@@ -177,13 +220,14 @@ a {
 	font-size: 14px;
 	text-align: center;
 	width: 90px;
-	padding-top: 14px;
-	padding-bottom: 14px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 .cuerpo .boton.inicio {
 	margin-top:0px;
+	margin-bottom:0px;
 }
 
 
@@ -192,7 +236,8 @@ a {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	font-size: 12px;
+	font-size: 14px;
+	max-width:500px;
 }
 .cuerpo2 .main .item.first {
 	margin-top:30px;
@@ -214,10 +259,10 @@ a {
 	width:90%;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:40px;
-	margin-bottom:30px;
-	border-top-width: 2px;
-	border-bottom-width: 2px;
+	margin-top:105px;
+	margin-bottom:10px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
 	border-top-style: solid;
 	border-bottom-style: solid;
 	border-top-color: #6D6E71;
@@ -231,7 +276,7 @@ a {
 	background-image: url(../img/flechita.jpg);
 	background-repeat: no-repeat;
 	background-position: 95% center;
-	font-size:16px;
+	font-size:18px;
 }
 .cuerpo2 .fecha #date {
 	width: 48%;
@@ -289,7 +334,7 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 12px;
 }
 .cuerpo2 .main.first {
 	margin-top: 100px;
@@ -298,8 +343,10 @@ a {
 	width: 210px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 25px;
+	margin-top: 12px;
 	margin-bottom: 10px;
+	padding-top:10px;
+	padding-bottom:10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
@@ -315,6 +362,8 @@ a {
 	margin-right: 10px;
 	float: left;
 	width: 90px;
+	padding-top:10px;
+	padding-bottom:10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
@@ -350,7 +399,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 185px;
+	width: 135px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
@@ -554,10 +603,11 @@ a {
 	margin-top: 10px;
 	margin-right: auto;
 	margin-left: auto;
+	max-width:500px;
 }
 
 .cuerpo80 .info {
-	font-size: 12px;
+	font-size: 14px;
 }/*
 @media only screen and ( max-width: 600px )  {
 .cuerpo80 .info {
@@ -590,17 +640,21 @@ a {
 }
 .historial_item {
 	width: 100%;
-	border-bottom-width: 2px;
+	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #D1D2D4;
-	padding-top: 30px;
-	padding-bottom: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	text-align: center;
 }
 .historial_item .texto {
 	width: 90%;
 	margin-right: auto;
 	margin-left: auto;
+	font-size: 14px;
+	text-align: left;
+}
+.historial_item .fecha {
 	font-size: 12px;
 	text-align: left;
 }
@@ -621,7 +675,8 @@ a {
 	padding-left: 10px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top:40px;
+	margin-top:60px;
+	margin-bottom:100px;
 }
 .------------------MAS---------------{}
 
@@ -630,11 +685,12 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 	margin-top:60px;
+	max-width:500px;
 }
 .cuerpo_mas .item {
-	padding-top: 20px;
+	padding-top: 15px;
 	padding-right: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 15px;
 	padding-left: 30px;
 	font-size: 16px;
 	background-color: #F7F9F8;
@@ -642,10 +698,16 @@ a {
 	border-bottom-style: solid;
 	border-bottom-color: #D1D2D4;
 	height: 30px;
+	vertical-align: middle;
 }
 .cuerpo_mas .item .txt {
+	margin-top:10px;
+	margin-top:10px;
 	width:80%;
+	height:100%;
 	float:left;
+	vertical-align: middle;
+	line-height:100%;
 }
 
 .cuerpo_mas .item img {
@@ -673,6 +735,8 @@ a {
 	background-color: #4F535C;
 	border: 1px solid #3D9993;
 	color: #FFF;
+	padding-top:10px;
+	padding-bottom:10px;
 	font-size: 14px;
 	padding-top: 10px;
 	padding-bottom: 10px;

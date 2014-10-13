@@ -47,12 +47,17 @@ function insertHist(tx) {
     var max = $("#max").val();
     var min = $("#min").val();
     var note = $("#note").val();
-    var dd = d.getDate();
-    var mm = d.getMonth();
-    var yy = d.getFullYear();
-    var hs = d.getHours();
-    var minut = d.getMinutes();
-
+	// --Franco sos un flashero--
+	var dia = document.getElementById("date").innerHTML;
+	var tiempo = document.getElementById("time").innerHTML; 
+    var dd = dia.substring(0,2);
+    var mm = dia.substring(3,5);
+    var yy = dia.substring(6,10);
+    var hs = tiempo.substring(0,2);
+    var minut = tiempo.substring(3,5);
+	//alert(dia+ tiempo);
+	//alert((dd) + "+" + (mm) + "+" + (yy));
+	//alert ((hs) + ":" + (minut) + "hs");
     var query = 'INSERT INTO HIST (max, min, note, dd, mm, yy, hs, minut) VALUES (?,?,?,?,?,?,?,?)';
 
     tx.executeSql(query, [max, min, note, dd, mm, yy, hs, minut]);
@@ -104,13 +109,15 @@ function cerrarVentana() {
 
 function dateParser(dd, mm, yy) {
     mm = mm + 1;
-    return dd + "-" + mm + "-" + yy;
+    return (conCeros(dd) + "-" + conCeros(mm) + "-" + conCeros(yy));
 }
-
 function timeParser(hs, minut) {
-    return hs + ":" + minut + "hs";
+    return (conCeros(hs) + ":" + conCeros(minut) + "hs");
 }
-
+function conCeros(val){
+	if(val<=9){return ("0"+val);}
+	else{return val;}
+}
 function cleanForm() {
     window.location.href="datos.html";
 }
@@ -221,15 +228,16 @@ function initClickCB() {
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
 				//alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
+				if (!(!($.isNumeric(dd)) || !($.isNumeric(mm)))){
 				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
 					var dateAuxString = dateParser(ddd, mmm, yyy);
 					$("#date").text(dateAuxString);
-					alert("No es posible ingresar fechas del futuro");
+					alert("No es posible ingresar fechas Futuras");
 				}else{
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-                $("#date").text(dateAuxString);}
+                $("#date").text(dateAuxString);}}
                 //$("#time").text(hourAuxString);
             });	
         }
@@ -251,11 +259,12 @@ function initClickCB() {
                 //var yy = d.getFullYear();
                 var hs = d.getHours();
                 var minut = d.getMinutes();
-
+				
+				if (!(!($.isNumeric(minut)) || !($.isNumeric(hs)))){
                 //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
-                $("#time").text(hourAuxString);
+                $("#time").text(hourAuxString);}
             });
         });
 }
