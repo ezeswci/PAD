@@ -82,7 +82,7 @@ function successCBM() {
     db.transaction(selectHistM, errorCB);
 }
 function selectHistM(tx) {
-    tx.executeSql('SELECT * FROM HIST ORDER BY yy,mm,dd,hs,minut', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM HIST ORDER BY yy,mm,dd,hs,minut', [], querySuccessM, errorCB);
 }
 
 function querySuccessM(tx, rs) {
