@@ -744,7 +744,7 @@ a {
 #resumen_oculto {
 	display:none;
 }
-@media screen and (min-height: 600px) {
+@media screen and (min-height: 570px) {
 	/* Si es mas grande que los regulares */
 	.cuerpo2 .fecha {
 		margin-top:100px;
@@ -753,7 +753,7 @@ a {
 	font-size: 13px;
 }
 .cuerpo .item.menos {
-	margin-top:35px;
+	margin-top:30px;
 	margin-bottom: 15px;
 }
 .cuerpo .item.last {
