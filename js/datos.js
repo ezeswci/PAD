@@ -236,7 +236,7 @@ function initClickCB() {
 
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
-				if(dd!=null){
+				if(!isNaN(dd)){
                 $("#date").text(dateAuxString);}}}
                 //$("#time").text(hourAuxString);
             );	
@@ -263,7 +263,7 @@ function initClickCB() {
                 //var dateAuxString = dateParser(dd, mm, yy);
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
-				if(hs!=null){
+				if(!isNaN(hs)){
                 $("#time").text(hourAuxString);}
             });
         });
