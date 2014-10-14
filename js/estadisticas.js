@@ -17,6 +17,7 @@ function onDeviceReady() {
     db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
     db.transaction(initDB, errorCB, successCB);
 }
+
 var maxDataOriginal = [];
 var minDataOriginal = [];
 var maxData = [];
@@ -86,7 +87,7 @@ function cleanHist(newDate) {
         var d = maxDataOriginal[index];
 		// En el registro esta guardado los meses bien, y el date lleva uno menos
         var auxDate = new Date(d.yy, (d.mm-1), d.dd, d.hs, d.minut, 0, 0);
-		alert(d+"-Fecha:-"+auxDate);
+		//alert(d+"-Fecha:-"+auxDate);
         if (auxDate > newDate) {
             maxDataAux = maxDataOriginal[index];
             minDataAux = minDataOriginal[index];
