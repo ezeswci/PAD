@@ -370,8 +370,6 @@ a {
 .cuerpo2 .main.error .item {
 	color: #F71628;
 }
-
-
 #aclaracion_max, #aclaracion_min, #aclaracion_nota {
 	color: #F71628;
 	font-size: 16px;
@@ -745,4 +743,44 @@ a {
 }
 #resumen_oculto {
 	display:none;
+}
+@media screen and (min-height: 600px) {
+	/* Si es mas grande que los regulares */
+	.cuerpo2 .fecha {
+		margin-top:100px;
+	}
+	.cuerpo .item {
+	font-size: 13px;
+}
+.cuerpo .item.menos {
+	margin-top:35px;
+	margin-bottom: 15px;
+}
+.cuerpo .item.last {
+	margin-top:30px;
+	margin-bottom: 15px;
+}
+.cuerpo2 .main {
+	margin-top: 40px;
+}
+.cuerpo .boton.inicio {
+	margin-top:20px;
+	margin-bottom:0px;
+}
+.cuerpo_mas {
+	margin-top:100px;
+}
+.cuerpo_mas .item {
+	padding-top: 25px;
+	padding-right: 20px;
+	padding-bottom: 25px;
+	padding-left: 30px;
+	font-size: 16px;
+	background-color: #F7F9F8;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #D1D2D4;
+	height: 30px;
+	vertical-align: middle;
+}
 }

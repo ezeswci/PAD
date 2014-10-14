@@ -398,7 +398,6 @@ function parMes(mes){
 	if(mes==10){return 'oct';}
 	if(mes==11){return 'nov';}
 	if(mes==12){return 'dic';}
-	alert("Mes:"+mes);
 }
 function parAno(ano){
 	return (ano-2000);
