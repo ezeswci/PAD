@@ -73,17 +73,20 @@ function cleanHist(newDate) {
     maxData = [];
     minData = [];
     dateLabel = [];
-    
+    //alert(newDate);
     var dd;
     var mm;
     var yy;
     var hs;
     var minut;
     var index_aux = 0;
-    
+	//alert(newDate);
+    //alert(maxDataOriginal.length);
     for (index = 0; index < maxDataOriginal.length; index++) {
         var d = maxDataOriginal[index];
-        var auxDate = new Date(d.yy, d.mm, d.dd, d.hs, d.minut, 0, 0);
+		// En el registro esta guardado los meses bien, y el date lleva uno menos
+        var auxDate = new Date(d.yy, (d.mm-1), d.dd, d.hs, d.minut, 0, 0);
+		alert(d+"-Fecha:-"+auxDate);
         if (auxDate > newDate) {
             maxDataAux = maxDataOriginal[index];
             minDataAux = minDataOriginal[index];
@@ -135,6 +138,7 @@ function querySuccess(tx, rs) {
     $('#visualisation').empty();
     //Substract 1 week
     var newDate = new Date(new Date().setDate(new Date().getDate() - 7));
+	//alert(newDate);
     buildGraphHist(rs);
     cleanHist(newDate);
     // this will be empty since no rows were inserted.
