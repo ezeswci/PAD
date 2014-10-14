@@ -51,8 +51,8 @@ function insertHist(tx) {
 	var dia = document.getElementById("date").innerHTML;
 	var tiempo = document.getElementById("time").innerHTML; 
     var dd = dia.substring(0,2);
-    var mm = dia.substring(3,5);
-    var yy = dia.substring(6,10);
+    var mm = desparMes(dia.substring(3,6));
+    var yy = dia.substring(7,11);
     var hs = tiempo.substring(0,2);
     var minut = tiempo.substring(3,5);
 	//alert(dia+ tiempo);
@@ -109,7 +109,7 @@ function cerrarVentana() {
 
 function dateParser(dd, mm, yy) {
     mm = mm + 1;
-    return (conCeros(dd) + "-" + conCeros(mm) + "-" + conCeros(yy));
+    return (conCeros(dd) + "-" + parMes(mm) + "-" + conCeros(yy));
 }
 function timeParser(hs, minut) {
     return (conCeros(hs) + ":" + conCeros(minut) + "hs");
@@ -142,7 +142,7 @@ function verif() {
         return false;
     }
 	if (note == null) {
-        alert("El campo Notas no puede quedar vacio, ingrese una opción");
+        alert("El campo Notas no puede quedar vacío, ingrese una opción.");
         return false;
     }
 
@@ -231,7 +231,7 @@ function initClickCB() {
 				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
 					var dateAuxString = dateParser(ddd, mmm, yyy);
 					$("#date").text(dateAuxString);
-					alert("No es posible ingresar fechas Futuras");
+					alert("No es posible ingresar fechas futuras.");
 				}else{
 
                 var dateAuxString = dateParser(dd, mm, yy);
@@ -267,4 +267,32 @@ function initClickCB() {
                 $("#time").text(hourAuxString);}
             });
         });
+}
+function parMes(mes){
+	if(mes==1){return 'ene';}
+	if(mes==2){return 'feb';}
+	if(mes==3){return 'mar';}
+	if(mes==4){return 'abr';}
+	if(mes==5){return 'may';}
+	if(mes==6){return 'jun';}
+	if(mes==7){return 'jul';}
+	if(mes==8){return 'ago';}
+	if(mes==9){return 'sep';}
+	if(mes==10){return 'oct';}
+	if(mes==11){return 'nov';}
+	if(mes==12){return 'dic';}
+}
+function desparMes(mes){
+	if(mes=='ene'){return '01';}
+	if(mes=='feb'){return '02';}
+	if(mes=='mar'){return '03';}
+	if(mes=='abr'){return '04';}
+	if(mes=='may'){return '05';}
+	if(mes=='jun'){return '06';}
+	if(mes=='jul'){return '07';}
+	if(mes=='ago'){return '08';}
+	if(mes=='sep'){return '09';}
+	if(mes=='oct'){return '10';}
+	if(mes=='nov'){return '11';}
+	if(mes=='dic'){return '12';}
 }

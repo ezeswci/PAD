@@ -747,17 +747,17 @@ a {
 @media screen and (min-height: 570px) {
 	/* Si es mas grande que los regulares */
 	.cuerpo2 .fecha {
-		margin-top:100px;
+		margin-top:90px;
 	}
 	.cuerpo .item {
 	font-size: 13px;
 }
 .cuerpo .item.menos {
-	margin-top:27px;
+	margin-top:25px;
 	margin-bottom: 15px;
 }
 .cuerpo .item.last {
-	margin-top:30px;
+	margin-top:28px;
 	margin-bottom: 15px;
 }
 .cuerpo2 .main {
