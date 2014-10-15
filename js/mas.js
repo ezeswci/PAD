@@ -5,7 +5,6 @@ if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false){
 	var devicePlatform="iOS";
 }else{
 	var devicePlatform="Android";
-	alert("android");
 }
 document.addEventListener("deviceready", onDeviceReady, false);
 var email = "";
@@ -39,8 +38,7 @@ function createEvent() {
 	if(devicePlatform='Android'){
 	
 	document.addEventListener("deviceready", elejirHora, false);	
-	document.addEventListener("deviceready", elejirDia, false);
-	document.addEventListener("deviceready", agendarEvento, false);}
+	document.addEventListener("deviceready", elejirDia, false);}
 		else{
 			 var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
  			 var error = function(message) { alerta("Error: " + message); };
@@ -110,6 +108,7 @@ function elejirHora () {
                 d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
                 window.hs = d.getHours();
                 window.minut = d.getMinutes();
+				document.addEventListener("deviceready", agendarEvento, false);
             });
         }
 function alerta(txt){

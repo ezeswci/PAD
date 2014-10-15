@@ -218,60 +218,15 @@ function initClickCB() {
 
     $("#date").click(
         function () {
-            var options = {
-                date: new Date(),
-                mode: 'date'
-            };
-
-            datePicker.show(options, function (date) {
-				var aux= new Date();
-				var ddd = aux.getDate();
-                var mmm = aux.getMonth();
-                var yyy = aux.getFullYear();
-
-                d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
-                var dd = d.getDate();
-                var mm = d.getMonth();
-                var yy = d.getFullYear();
-				//alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
-				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
-					var dateAuxString = dateParser(ddd, mmm, yyy);
-					$("#date").text(dateAuxString);
-					alerta("No es posible ingresar fechas futuras.");
-				}else{
-
-                var dateAuxString = dateParser(dd, mm, yy);
-                //var hourAuxString = timeParser(hs, minut);
-				if(!isNaN(dd)){
-                $("#date").text(dateAuxString);}}}
-                //$("#time").text(hourAuxString);
-            );	
+			document.addEventListener("deviceready", elejirDia, false);
         }
 		);
 
     $("#time").click(
 
         function () {
-            var options = {
-                date: new Date(),
-                mode: 'time'
-            };
-
-            datePicker.show(options, function (date) {
-
-                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
-                //var dd = d.getDate();
-                //var mm = d.getMonth();
-                //var yy = d.getFullYear();
-                var hs = d.getHours();
-                var minut = d.getMinutes();
-				
-                //var dateAuxString = dateParser(dd, mm, yy);
-                var hourAuxString = timeParser(hs, minut);
-                //$("#date").text(dateAuxString);
-				if(!isNaN(hs)){
-                $("#time").text(hourAuxString);}
-            });
+			document.addEventListener("deviceready", elejirHora, false);
+           
         });
 }
 function parMes(mes){
@@ -309,3 +264,54 @@ document.documentElement.appendChild(iframe);
 window.frames[0].window.alert(txt);
 iframe.parentNode.removeChild(iframe);
 }
+function elejirDia(){
+	var options = {
+                date: new Date(),
+                mode: 'date'
+            };
+
+            datePicker.show(options, function (date) {
+				var aux= new Date();
+				var ddd = aux.getDate();
+                var mmm = aux.getMonth();
+                var yyy = aux.getFullYear();
+
+                d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+                var dd = d.getDate();
+                var mm = d.getMonth();
+                var yy = d.getFullYear();
+				//alert("Elec:"+dd+mm+yy+"-Sis:"+ddd+mmm+yyy);
+				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
+					var dateAuxString = dateParser(ddd, mmm, yyy);
+					$("#date").text(dateAuxString);
+					alerta("No es posible ingresar fechas futuras.");
+				}else{
+
+                var dateAuxString = dateParser(dd, mm, yy);
+                //var hourAuxString = timeParser(hs, minut);
+				if(!isNaN(dd)){
+                $("#date").text(dateAuxString);}}}
+                //$("#time").text(hourAuxString);
+            );	}
+function elejirHora () {
+             var options = {
+                date: new Date(),
+                mode: 'time'
+            };
+
+            datePicker.show(options, function (date) {
+
+                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                //var dd = d.getDate();
+                //var mm = d.getMonth();
+                //var yy = d.getFullYear();
+                var hs = d.getHours();
+                var minut = d.getMinutes();
+				
+                //var dateAuxString = dateParser(dd, mm, yy);
+                var hourAuxString = timeParser(hs, minut);
+                //$("#date").text(dateAuxString);
+				if(!isNaN(hs)){
+                $("#time").text(hourAuxString);}
+            });
+        }
