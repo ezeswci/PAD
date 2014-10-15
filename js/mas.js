@@ -1,8 +1,7 @@
 //Not using jQuery because this is a special event for phonegap
 //If not firing with this event, phonegap plugins don't work
 //
-var name = device.name;
-if(name.indexOf("iP") > -1){
+if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false){
 	var devicePlatform="iOS";
 }else{
 	var devicePlatform="Android";
