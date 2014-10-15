@@ -125,7 +125,7 @@ function conCeros(val){
 	else{return val;}
 }
 function cleanForm() {
-    window.location.href="datos.html";
+    window.location.reload();
 }
 
 function verif() {
