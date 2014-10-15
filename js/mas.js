@@ -1,8 +1,14 @@
 //Not using jQuery because this is a special event for phonegap
 //If not firing with this event, phonegap plugins don't work
 //
+var name = device.name;
+if(name.indexOf("iP") > -1){
+	var devicePlatform="iOS";
+}else{
+	var devicePlatform="Android";
+	alert("android");
+}
 document.addEventListener("deviceready", onDeviceReady, false);
-var devicePlatform = device.platform;
 var email = "";
 var startDate = new Date();
 var endDate = new Date();
@@ -32,9 +38,10 @@ function agendarEvento() {
 function createEvent() {
 	cerrarVentana();
 	if(devicePlatform='Android'){
-	document.addEventListener("deviceready", agendarEvento, false);
+	
 	document.addEventListener("deviceready", elejirHora, false);	
-	document.addEventListener("deviceready", elejirDia, false);}
+	document.addEventListener("deviceready", elejirDia, false);
+	document.addEventListener("deviceready", agendarEvento, false);}
 		else{
 			 var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
  			 var error = function(message) { alerta("Error: " + message); };

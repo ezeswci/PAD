@@ -1,5 +1,10 @@
 $(document).ready(onDeviceReady);
-var devicePlatform = device.platform;// - "Android" - "iOS"
+var name = device.name;
+if(name.indexOf("iP") > -1){
+	var devicePlatform="iOS";
+}else{
+	var devicePlatform="Android";
+}
 var db;
 var d = new Date();
 // PhoneGap is ready

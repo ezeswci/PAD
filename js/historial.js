@@ -1,5 +1,5 @@
 $(document).ready(onDeviceReady);
-var devicePlatform = device.platform;// - "Android" - "iOS"
+//var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
 var db;
