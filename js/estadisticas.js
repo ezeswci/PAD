@@ -1,4 +1,5 @@
 $(document).ready(onDeviceReady);
+var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
 var db;
@@ -406,4 +407,11 @@ function dateParser(dd, mm, yy, hs, minut) {
     //mm = mm + 1; No entiendo para que agregas esto
     return dd + "-" + parMes(mm) + "-" + parAno(yy);
 	//return dd + "-" + mm + "-" + yy + " " + hs + ":" + minut + "hs";
+}
+function alerta(txt){
+var iframe = document.createElement("IFRAME");
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(txt);
+iframe.parentNode.removeChild(iframe);
 }

@@ -40,20 +40,26 @@ a {
 .header {
 	font-family: 'NeutraText-BookAlt';
 	background-color: #1D9C9E;
-	height: 67px;
+	height: 77px;
 	width: 100%;
 	color: #FFF;
 	text-align: center;
 	font-size: 18px;
 	position: fixed;
 	top: 0px;
-}.header .titulo {
-	top: 18px;
+}
+.header.inicial {
+	background-image:url(../img/logo.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.header .titulo {
+	top: 28px;
 	padding-top: 28px;
 }
 .header .titulo .i {
 	position: absolute;
-	top: 28px;
+	top: 26px;
 	right: 10px;
 }
 .header_publi {
@@ -64,9 +70,13 @@ a {
 	position: fixed;
 }
 .header_publi .wrapper {
-	width: 350px;
+	width:100%;
+	max-width:350px;
 	margin-left:auto;
 	margin-right:auto;
+}
+.header_publi .wrapper img {
+	
 }
 .header_carga {
 	font-family: 'NeutraText-BookAlt';
@@ -94,7 +104,7 @@ a {
 	margin-left: auto;
 	position: absolute;
 	left: 0px;
-	top: 67px;
+	top: 77px;
 	right: 0px;
 	background-image: url(../img/triangulo_inf.fw.png);
 }
@@ -151,7 +161,7 @@ a {
 .header #logo {
 	width: 150px;
 	height:50px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-right: auto;
 	margin-bottom: 10px;
 	margin-left: auto;
@@ -167,7 +177,7 @@ a {
 	max-width:500px;
 }
 .cuerpo.inicial {
-	margin-top: 35px;
+	margin-top: 50px;
 }
 .cuerpo .info {
 	font-size: 14px;
@@ -178,8 +188,6 @@ a {
 	width: 100%;
 	font-size: 11px;
 	display:block;
-	text-align: justify;
-    text-justify: inter-word;
 }
 .cuerpo .item.menos {
 	margin-top:5px;
@@ -782,5 +790,29 @@ a {
 	border-bottom-color: #D1D2D4;
 	height: 30px;
 	vertical-align: middle;
+}
+}
+@media screen and (max-height: 500px) {
+.cuerpo2 .fecha {
+	margin-top:115px;
+		padding-top: 10px;
+	padding-bottom: 10px;
+	font-size:16px;
+	}
+	.cuerpo2 .main {
+	margin-top: 4px;
+}
+.cuerpo2 .item.boton {
+	margin-top: 7px;
+	margin-bottom: 5px;
+	}
+	.cuerpo .item .texto {
+	margin-top: 5px;
+}
+
+.cuerpo .item .texto_principal {
+	font-size: 12px;
+	margin-top:5px;
+	margin-bottom:-10px;
 }
 }

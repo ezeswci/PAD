@@ -2,7 +2,7 @@
 //If not firing with this event, phonegap plugins don't work
 //
 document.addEventListener("deviceready", onDeviceReady, false);
-
+var devicePlatform = device.platform;
 var email = "";
 var startDate = new Date();
 var endDate = new Date();
@@ -22,6 +22,8 @@ function onDeviceReady() {
     initClickCB();
 }
 function agendarEvento() {
+		var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
+ 		 var error = function(message) { alerta("Error: " + message); };
 		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
         window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
@@ -29,9 +31,15 @@ function agendarEvento() {
 
 function createEvent() {
 	cerrarVentana();
+	if(devicePlatform='Android'){
 	document.addEventListener("deviceready", agendarEvento, false);
 	document.addEventListener("deviceready", elejirHora, false);	
-		document.addEventListener("deviceready", elejirDia, false);
+	document.addEventListener("deviceready", elejirDia, false);}
+		else{
+			 var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
+ 			 var error = function(message) { alerta("Error: " + message); };
+			window.plugins.calendar.createCalendar("Mi Presion",success,error);
+		}
 		
 		 		
 		
@@ -85,8 +93,6 @@ function elejirDia () {
                 window.dd = d.getDate();
                 window.mm = d.getMonth();
                 window.yy = d.getFullYear();
-                var dateAuxString = dateParser(dd, mm, yy);
-                $("#date").text(dateAuxString);
             });	
         }
 function elejirHora () {
@@ -100,3 +106,10 @@ function elejirHora () {
                 window.minut = d.getMinutes();
             });
         }
+function alerta(txt){
+var iframe = document.createElement("IFRAME");
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(txt);
+iframe.parentNode.removeChild(iframe);
+}

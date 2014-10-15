@@ -1,5 +1,5 @@
 $(document).ready(onDeviceReady);
-
+var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
 var db;
@@ -74,6 +74,14 @@ if(note == "" || note == null || note == "---") {
     return '<div class="historial_item"><div class="texto"><div class="fecha">' + dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + 'hs </div><strong><a style="color:'+colorMaxHist(max)+'">' + max + '</a> / ' + '<a style="color:'+colorMinHist(min)+'">' +  min + '</a> mmHg</strong> - Nota: ' + note + '</div></div>';
 }
 }
+function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
+if(note == "" || note == null || note == "---") {
+    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
+    
+} else {
+    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
+}
+}
 // Email
 function successCBM() {
     //alert("Success!");
@@ -113,14 +121,6 @@ function parMes(mes){
 function parAno(ano){
 	return (ano-2000);
 }
-function parseHistSelectM(min, max, note, dd, mm, yy, hs, minut) {
-if(note == "" || note == null || note == "---") {
-    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ', ,'+"\n";
-    
-} else {
-    return dd + '-' + parMes(mm) + '-' + parAno(yy) + ' ' + hs + ':' + minut + ',' + max + ' / ' + min + ',' + note + "\n";
-}
-}
 function sendMailDatos() {
 	var datos="Fecha, Medicion, Nota \n";//"data:text/csv;charset=utf-8,Fecha,Medicion,Nota,\n";
 	datos+=document.getElementById("resumen_oculto").innerHTML;
@@ -148,4 +148,11 @@ function chauTildes(name){
     }
 
     return name;
+}
+function alerta(txt){
+var iframe = document.createElement("IFRAME");
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(txt);
+iframe.parentNode.removeChild(iframe);
 }

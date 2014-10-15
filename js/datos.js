@@ -1,4 +1,5 @@
 $(document).ready(onDeviceReady);
+var devicePlatform = device.platform;// - "Android" - "iOS"
 var db;
 var d = new Date();
 // PhoneGap is ready
@@ -130,19 +131,19 @@ function verif() {
     var time = $("#time").text();
 
     if (!($.isNumeric(max)) || !($.isNumeric(min))) {
-        alert("MAX y MIN deben ser valores numéricos.");
+        alerta("MAX y MIN deben ser valores numéricos.");
         return false;
     }
     if (date == "dd-mm-aa") {
-        alert("Debes ingresar una fecha valida.");
+        alerta("Debes ingresar una fecha valida.");
         return false;
     }
     if (time == "hh:mm") {
-        alert("Debes ingresar una hora valida.");
+        alerta("Debes ingresar una hora valida.");
         return false;
     }
 	if (note == null) {
-        alert("El campo Notas no puede quedar vacío, ingrese una opción.");
+        alerta("El campo Notas no puede quedar vacío, ingrese una opción.");
         return false;
     }
 
@@ -231,7 +232,7 @@ function initClickCB() {
 				if((yyy<yy)||(yyy==yy && mmm<mm )||(yyy==yy && mmm==mm && ddd<dd )){
 					var dateAuxString = dateParser(ddd, mmm, yyy);
 					$("#date").text(dateAuxString);
-					alert("No es posible ingresar fechas futuras.");
+					alerta("No es posible ingresar fechas futuras.");
 				}else{
 
                 var dateAuxString = dateParser(dd, mm, yy);
@@ -295,4 +296,11 @@ function desparMes(mes){
 	if(mes=='oct'){return '10';}
 	if(mes=='nov'){return '11';}
 	if(mes=='dic'){return '12';}
+}
+function alerta(txt){
+var iframe = document.createElement("IFRAME");
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(txt);
+iframe.parentNode.removeChild(iframe);
 }
