@@ -26,7 +26,7 @@ function onDeviceReady() {
     initClickCB();
 }
 function agendarEvento() {
-		var success = function(message) { alerta(JSON.stringify(" Tu recordatorio se guardó bien.")); };
+		var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
 		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
@@ -37,7 +37,7 @@ function createEvent() {
 	cerrarVentana();
 	//if(devicePlatform='Android'){
 	
-	document.addEventListener("deviceready", elejirHora, false);	
+	//document.addEventListener("deviceready", elejirHora, false);	
 	document.addEventListener("deviceready", elejirDia, false);//} Comento la op del cal nativo de ios
 		//else{
 			// var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
@@ -97,6 +97,7 @@ function elejirDia () {
                 window.dd = d.getDate();
                 window.mm = d.getMonth();
                 window.yy = d.getFullYear();
+				document.addEventListener("deviceready", elejirHora, false);
             });	
         }
 function elejirHora () {

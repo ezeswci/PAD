@@ -19,6 +19,11 @@ body {
 	padding-top: 16px;
 	padding-bottom: 16px;
 	overflow-x:hidden;
+	/* No background, just iOS:*/
+-webkit-tap-highlight-color: transparent;
+
+/* No background iOS + Android:  */
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /*
 @media only screen and ( max-width: 600px )  {
@@ -412,7 +417,7 @@ a {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 145px;
+	width: 155px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
