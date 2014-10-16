@@ -289,7 +289,8 @@ function elejirDia(){
                 //var hourAuxString = timeParser(hs, minut);
 				if(!isNaN(dd)){
                 $("#date").text(dateAuxString);
-				verficarCambioDia(dd, mm, yy);}}}
+				//verficarCambioDia(dd, mm, yy);
+				}}}
                 //$("#time").text(hourAuxString);
             );	}
 function elejirHora () {
@@ -315,7 +316,7 @@ function elejirHora () {
                 //$("#date").text(dateAuxString);
 				if(!isNaN(hs)){
                 $("#time").text(hourAuxString);
-				verficarCambioHora(hs, minut);
+				//verficarCambioHora(hs, minut);
 				}
             });
         }
