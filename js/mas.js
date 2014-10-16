@@ -35,15 +35,19 @@ function agendarEvento() {
 
 function createEvent() {
 	cerrarVentana();
-	//if(devicePlatform='Android'){
+	if(devicePlatform='Android'){
 	
 	//document.addEventListener("deviceready", elejirHora, false);	
-	document.addEventListener("deviceready", elejirDia, false);//} Comento la op del cal nativo de ios
-		//else{
+	document.addEventListener("deviceready", elejirDia, false);}// Comento la op del cal nativo de ios
+		else{
 			// var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
  			 //var error = function(message) { alerta("Error: " + message); };
 			//window.plugins.calendar.createCalendar("Mi Presion",success,error);
-	//	}
+			var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
+ 			var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
+			var calendarName = "MyCal";
+			window.plugins.calendar.createCalendar(calendarName, this.success, this.error);
+	}
 		
 		 		
 		
