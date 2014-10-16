@@ -460,8 +460,7 @@ a {
 	top: 20%;
 	margin-left: auto;
 	margin-right: auto;
-	left: 0;
-	right: 0;
+	left: 8%;
 	visibility: hidden;
 	min-height: 105px;
 	overflow-y: auto;
@@ -486,8 +485,7 @@ a {
 	top: 10%;
 	margin-left: auto;
 	margin-right: auto;
-	left: 0;
-	right: 0;	
+	left: 8%;	
 	visibility: hidden;
 	overflow-y:auto;
 }
