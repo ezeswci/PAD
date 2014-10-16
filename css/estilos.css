@@ -32,9 +32,17 @@ body {
 a {
 	text-decoration: none;
 	color: #717174;
+	outline: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
  	 -webkit-tap-highlight-color: transparent; /* For some Androids */
-}
+	 -webkit-user-modify: read-write-plaintext-only; 
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+	-webkit-focus-ring-color: transparent; /* For some Androids */
+}:focus {
+        outline: 0;
+        border:none;
+        color: rgba(0, 0, 0, 0);
+    }
 
 
 .header {
@@ -709,7 +717,7 @@ a {
 .cuerpo_mas .item .txt {
 	margin-top:10px;
 	margin-top:10px;
-	width:80%;
+	width:84%;
 	height:100%;
 	float:left;
 	vertical-align: middle;
@@ -814,5 +822,25 @@ a {
 	font-size: 12px;
 	margin-top:5px;
 	margin-bottom:-10px;
+}
+.cuerpo_mas .item {
+	.cuerpo_mas .item {
+	padding-top: 15px;
+	padding-right: 20px;
+	padding-bottom: 15px;
+	padding-left: 30px;
+	font-size: 16px;
+	background-color: #F7F9F8;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #D1D2D4;
+	height: 30px;
+	vertical-align: middle;
+}
+}
+}
+@media screen and (max-width: 350px) {
+	.cuerpo_mas .item {
+	font-size: 13px;
 }
 }

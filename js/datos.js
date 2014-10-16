@@ -275,7 +275,6 @@ function elejirDia(){
 				var ddd = aux.getDate();
                 var mmm = aux.getMonth();
                 var yyy = aux.getFullYear();
-
                 d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
                 var dd = d.getDate();
                 var mm = d.getMonth();
@@ -286,11 +285,11 @@ function elejirDia(){
 					$("#date").text(dateAuxString);
 					alerta("No es posible ingresar fechas futuras.");
 				}else{
-
                 var dateAuxString = dateParser(dd, mm, yy);
                 //var hourAuxString = timeParser(hs, minut);
 				if(!isNaN(dd)){
-                $("#date").text(dateAuxString);}}}
+                $("#date").text(dateAuxString);
+				verficarCambioDia(dd, mm, yy);}}}
                 //$("#time").text(hourAuxString);
             );	}
 function elejirHora () {
@@ -300,6 +299,9 @@ function elejirHora () {
             };
 
             datePicker.show(options, function (date) {
+			var tiempo = document.getElementById("time").innerHTML; 
+    		var hs = tiempo.substring(0,2);
+    		var minut = tiempo.substring(3,5);
 
                 d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
                 //var dd = d.getDate();
@@ -312,6 +314,36 @@ function elejirHora () {
                 var hourAuxString = timeParser(hs, minut);
                 //$("#date").text(dateAuxString);
 				if(!isNaN(hs)){
-                $("#time").text(hourAuxString);}
+                $("#time").text(hourAuxString);
+				verficarCambioHora(hs, minut);
+				}
             });
         }
+function verficarCambioDia(ding, ming,ying){
+	var dia = document.getElementById("date").innerHTML;
+    var dd = dia.substring(0,2);
+    var mm = desparMes(dia.substring(3,6));
+    var yy = dia.substring(7,11);
+	if (yy!=ying || mm!=ming || dd!=ding){
+		setInterval(function () {
+			var dateAuxString = dateParser(ding, ming, ying);
+			if(!isNaN(ding)){
+            $("#date").text(dateAuxString);
+			verficarCambioDia(ding, ming, ying);}
+			}, 200);
+	}
+}
+function verficarCambioHora(hing,ming){
+	var tiempo = document.getElementById("time").innerHTML; 
+    var hs = tiempo.substring(0,2);
+    var minut = tiempo.substring(3,5);
+	if (hs!=hing || minut!=ming ){
+		setInterval(function () {
+			var hourAuxString = timeParser(hing, ming);
+                //$("#date").text(dateAuxString);
+				if(!isNaN(hing)){
+                $("#time").text(hourAuxString);
+				verficarCambioHora(hing, ming);}
+			}, 200);
+	}
+}
