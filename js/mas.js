@@ -28,9 +28,12 @@ function onDeviceReady() {
 function agendarEvento() {
 		var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
+		 var calendarName = "MyCal";
 		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
-        window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
+		if(devicePlatform=='Android'){
+        window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);}else{
+		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);}
 }
 
 function createEvent() {
@@ -38,15 +41,9 @@ function createEvent() {
 	//if(devicePlatform='Android'){
 	
 	//document.addEventListener("deviceready", elejirHora, false);	
-	//document.addEventListener("deviceready", elejirDia, false);}// Comento la op del cal nativo de ios
-		//else{
-			// var success = function(message) { alerta("Agendado: " + JSON.stringify(message)); };
- 			 //var error = function(message) { alerta("Error: " + message); };
-			//window.plugins.calendar.createCalendar("Mi Presion",success,error);
-			var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
- 			var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-			var calendarName = "MyCal";
-			window.plugins.calendar.createCalendar(calendarName, this.success, this.error);
+	document.addEventListener("deviceready", elejirDia, false);// Comento la op del cal nativo de ios
+			
+			//window.plugins.calendar.createCalendar(calendarName, this.success, this.error);
 	//}
 		
 		 		
