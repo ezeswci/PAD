@@ -12,9 +12,7 @@ var startDate = new Date();
 var endDate = new Date();
 startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDay, 0, 0, 0, 0, 0);
 endDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDay, 0, 0, 0, 0, 0);
-var title = "Recordar tomarme la presión.";
-var location_ = "";
-var notes = "Recordar tomarme la presión.";
+
 var success = function (message) {
     //    /alert("Success: " + JSON.stringify(message));
 };
@@ -28,11 +26,14 @@ function onDeviceReady() {
 function agendarEvento() {
 		var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-		 var calendarName = "MiPresion";
+		var calendarName = "MiPresion";
+		var title = "Recordar tomarme la presión.";
+		var location = " ";
+		var notes = "Recordar tomarme la presión.";
 		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
 		if(devicePlatform=='Android'){
-        window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);}else{
+        window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}else{
 		window.plugins.calendar.createCalendar(calendarName,success,error);	
 		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);}
 }
@@ -40,9 +41,10 @@ function agendarEvento() {
 function createEvent() {
 	cerrarVentana();
 	//if(devicePlatform='Android'){
-	
-	//document.addEventListener("deviceready", elejirHora, false);	
-	document.addEventListener("deviceready", elejirDia, false);// Comento la op del cal nativo de ios
+	if(devicePlatform=='Android'){
+        document.addEventListener("deviceready", elejirDia, false);}else{
+		document.addEventListener("deviceready", elejirMomento, false);}
+	//document.addEventListener("deviceready", elejirHora, false);	// Comento la op del cal nativo de ios
 			
 			//window.plugins.calendar.createCalendar(calendarName, this.success, this.error);
 	//}
@@ -109,6 +111,21 @@ function elejirHora () {
             };
             datePicker.show(options, function (date) {
                 d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                window.hs = d.getHours();
+                window.minut = d.getMinutes();
+				document.addEventListener("deviceready", agendarEvento, false);
+            });
+        }
+function elejirMomento () {
+            var options = {
+                date: new Date(),
+                mode: 'datetime'
+            };
+            datePicker.show(options, function (date) {
+                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+				window.dd = d.getDate();
+                window.mm = d.getMonth();
+                window.yy = d.getFullYear();
                 window.hs = d.getHours();
                 window.minut = d.getMinutes();
 				document.addEventListener("deviceready", agendarEvento, false);
