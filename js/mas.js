@@ -37,10 +37,12 @@ function agendarEvento() {
 		if(devicePlatform=='Android'){
         window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}else{
 		var createCalOptions = window.plugins.calendar.getCreateCalendarOptions();
-		createCalOptions.calendarColor = "#1D9C9E"; // an optional hex color (with the # char), default is null, so the OS picks a color
+		createCalOptions.calendarColor = "#1D9C9E";
+		calOptions.recurrenceEndDate = endDate;// an optional hex color (with the # char), default is null, so the OS picks a color
 		createCalOptions.calendarName = "Mi Presion";
 window.plugins.calendar.createCalendar(createCalOptions,successc,errorc);	
-		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);}
+		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error); 
+		 }
 }
 
 function createEvent() {
