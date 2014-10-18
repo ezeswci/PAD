@@ -34,26 +34,34 @@ function agendarEvento() {
 		var notes = "Recordar tomarme la presión.";
 		startDate = new Date(window.yy, window.mm, window.dd, window.hs, window.minut, 0, 0, 0);
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
+		alert("Empieza:"+startDate);
+		alert("Termina:"+endDate);
 		if(devicePlatform=='Android'){
-        window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}else{
+        window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}
+		else{
+		alert("Entro en calendario ios");
 		var createCalOptions = window.plugins.calendar.getCreateCalendarOptions();
 		createCalOptions.calendarColor = "#1D9C9E";
 		calOptions.recurrenceEndDate = endDate;// an optional hex color (with the # char), default is null, so the OS picks a color
 		createCalOptions.calendarName = "Mi Presion";
+		alert("Creo calendario ios");
 window.plugins.calendar.createCalendar(createCalOptions,successc,errorc);	
-		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error); 
+	alert("Agendo calendario ios");
+		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);
+		 alert("Termine"); 
 		 }
 }
 
 function createEvent() {
 	cerrarVentana();
 	//if(devicePlatform='Android'){
+		alert("Entro a calendario")
 	if(devicePlatform=='Android'){
 		//alert("Este equipo es android");
         document.addEventListener("deviceready", elejirDia, false);
 		//alert("Este equipo es android-2");
 		}else{
-			//alert("Este equipo es IOS");
+			alert("Este equipo es IOS");
 			elejirMomento();
 		//document.addEventListener("deviceready", elejirMomento, false);
 		//alert("Este equipo es IOS-2");
@@ -142,8 +150,9 @@ function elejirMomento () {
                 window.yy = d.getFullYear();
                 window.hs = d.getHours();
                 window.minut = d.getMinutes();
-				agendarEvento();
-				//document.addEventListener("deviceready", agendarEvento, false);
+				alert("Voy con fecha:" + window.dd +"-"+window.mm +"-"+window.yy +"-"+window.hs +"-"+window.minut +"-");
+				//agendarEvento();
+				document.addEventListener("deviceready", agendarEvento, false);
             });
         }
 function alerta(txt){
