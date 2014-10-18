@@ -44,11 +44,11 @@ function createEvent() {
 	cerrarVentana();
 	//if(devicePlatform='Android'){
 	if(devicePlatform=='Android'){
-		alert("Este equipo es android");
-        //document.addEventListener("deviceready", elejirDia, false);
+		//alert("Este equipo es android");
+        document.addEventListener("deviceready", elejirDia, false);
 		//alert("Este equipo es android-2");
 		}else{
-			alert("Este equipo es IOS");
+			//alert("Este equipo es IOS");
 			elejirMomento();
 		//document.addEventListener("deviceready", elejirMomento, false);
 		alert("Este equipo es IOS-2");
