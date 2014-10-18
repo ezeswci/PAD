@@ -26,7 +26,9 @@ function onDeviceReady() {
 function agendarEvento() {
 		var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-		var calendarName = null;
+		 var successc = function(message) { alerta(" Tu Calendarios se a creado bien."); };
+ 		 var errorc = function(message) { };
+		var calendarName = "Mi presion";
 		var title = "Recordar tomarme la presión.";
 		var location = " ";
 		var notes = "Recordar tomarme la presión.";
@@ -36,7 +38,8 @@ function agendarEvento() {
         window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}else{
 		var createCalOptions = window.plugins.calendar.getCreateCalendarOptions();
 		createCalOptions.calendarColor = "#1D9C9E"; // an optional hex color (with the # char), default is null, so the OS picks a color
-window.plugins.calendar.createCalendar(createCalOptions,success,error);	
+		createCalOptions.calendarName = "Mi Presion";
+window.plugins.calendar.createCalendar(createCalOptions,successc,errorc);	
 		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);}
 }
 
@@ -51,7 +54,7 @@ function createEvent() {
 			//alert("Este equipo es IOS");
 			elejirMomento();
 		//document.addEventListener("deviceready", elejirMomento, false);
-		alert("Este equipo es IOS-2");
+		//alert("Este equipo es IOS-2");
 		}
 	//document.addEventListener("deviceready", elejirHora, false);	// Comento la op del cal nativo de ios
 			
