@@ -802,6 +802,18 @@ a {
 	vertical-align: middle;
 }
 }
+@media screen and (min-height: 800px) {
+	/* Si es mas grande que los regulares */
+body {
+  zoom: 135%;
+}
+}
+@media screen and (min-height: 1200px) {
+	/* Si es mas grande que los regulares */
+body {
+  zoom: 150%;
+}
+}
 @media screen and (max-height: 500px) {
 .cuerpo2 .fecha {
 	margin-top:115px;

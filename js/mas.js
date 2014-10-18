@@ -26,7 +26,7 @@ function onDeviceReady() {
 function agendarEvento() {
 		var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-		var calendarName = "MiPresion";
+		var calendarName = null;
 		var title = "Recordar tomarme la presión.";
 		var location = " ";
 		var notes = "Recordar tomarme la presión.";
@@ -34,7 +34,9 @@ function agendarEvento() {
         endDate = new Date(window.yy, window.mm, window.dd, window.hs +1, window.minut, 0, 0, 0);
 		if(devicePlatform=='Android'){
         window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);}else{
-		window.plugins.calendar.createCalendar(calendarName,success,error);	
+		var createCalOptions = window.plugins.calendar.getCreateCalendarOptions();
+		createCalOptions.calendarColor = "#1D9C9E"; // an optional hex color (with the # char), default is null, so the OS picks a color
+window.plugins.calendar.createCalendar(createCalOptions,success,error);	
 		 window.plugins.calendar.createEventInNamedCalendar(title,location,notes,startDate,endDate,calendarName,success,error);}
 }
 
@@ -42,8 +44,15 @@ function createEvent() {
 	cerrarVentana();
 	//if(devicePlatform='Android'){
 	if(devicePlatform=='Android'){
-        document.addEventListener("deviceready", elejirDia, false);}else{
-		document.addEventListener("deviceready", elejirMomento, false);}
+		alert("Este equipo es android");
+        //document.addEventListener("deviceready", elejirDia, false);
+		//alert("Este equipo es android-2");
+		}else{
+			alert("Este equipo es IOS");
+			elejirMomento();
+		//document.addEventListener("deviceready", elejirMomento, false);
+		alert("Este equipo es IOS-2");
+		}
 	//document.addEventListener("deviceready", elejirHora, false);	// Comento la op del cal nativo de ios
 			
 			//window.plugins.calendar.createCalendar(calendarName, this.success, this.error);
@@ -128,7 +137,8 @@ function elejirMomento () {
                 window.yy = d.getFullYear();
                 window.hs = d.getHours();
                 window.minut = d.getMinutes();
-				document.addEventListener("deviceready", agendarEvento, false);
+				agendarEvento();
+				//document.addEventListener("deviceready", agendarEvento, false);
             });
         }
 function alerta(txt){
