@@ -124,7 +124,7 @@ function elejirMomento () {
                 mode: 'datetime'
             };
             datePicker.show(options, function (date) {
-                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), 0, 0);
 				var dd = d.getDate();
                 var mm = d.getMonth();
                 var yy = d.getFullYear();
