@@ -12,9 +12,11 @@ var startDate = new Date();
 var endDate = new Date();
 startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDay, 0, 0, 0, 0, 0);
 endDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDay, 0, 0, 0, 0, 0);
-
+var title = "Recordar tomarme la presión.";
+var location_ = "";
+var notes = "Recordar tomarme la presión.";
 var success = function (message) {
-    //    /alert("Success: " + JSON.stringify(message));
+        //alert("Success: " + JSON.stringify(message));
 };
 var error = function (message) {
     //alert("Error: " + message);
@@ -112,7 +114,7 @@ function elejirHora () {
                 mode: 'time'
             };
             datePicker.show(options, function (date) {
-                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), date.getHours(), date.getMinutes(), 0, 0);
+                d = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), 0, 0);
                 window.hs = d.getHours();
                 window.minut = d.getMinutes();
 				document.addEventListener("deviceready", agendarEvento, false);
@@ -123,21 +125,19 @@ function elejirMomento () {
                 date: new Date(),
                 mode: 'datetime'
             };
+    
             datePicker.show(options, function (date) {
-                d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), 0, 0);
-				var dd = d.getDate();
-                var mm = d.getMonth();
-                var yy = d.getFullYear();
-                var hs = d.getHours();
-                var minut = d.getMinutes();
+
+				var dd = date.getDate();
+                var mm = date.getMonth();
+                var yy = date.getFullYear();
+                var hs = date.getHours();
+                var minut = date.getMinutes();
 				startDate = new Date(yy, mm, dd, hs, minut, 0, 0, 0);
         		endDate = new Date(yy, mm, dd + 1, hs, minut, 0, 0, 0);
-				var title = "Recordar tomarme la presión.";
-				var location = "Presion";
-				var notes = "Recordar tomarme la presión.";
-				var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
- 		 		var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-        		window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);
+                var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
+ 		         var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar");};
+        		window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
             });
         }
 function alerta(txt){
