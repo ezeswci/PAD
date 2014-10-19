@@ -137,7 +137,7 @@ function elejirMomento () {
 				var notes = "Recordar tomarme la presión.";
 				var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
  		 		var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
-        		window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
+        		window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);
             });
         }
 function alerta(txt){
