@@ -130,7 +130,14 @@ function elejirMomento () {
                 var yy = d.getFullYear();
                 var hs = d.getHours();
                 var minut = d.getMinutes();
-				agendarEventoIos(yy,mm,dd,hs,minut)
+				startDate = new Date(yy, mm, dd, hs, minut, 0, 0, 0);
+        		endDate = new Date(yy, mm, dd + 1, hs, minut, 0, 0, 0);
+				var title = "Recordar tomarme la presión.";
+				var location = "Presion";
+				var notes = "Recordar tomarme la presión.";
+				var success = function(message) { alerta(" Tu recordatorio se guardó bien."); };
+ 		 		var error = function(message) { alerta("Error: Hubo un error de sistema, por favor vuelva a intentar"); };
+        		window.plugins.calendar.createEvent(title, location_, notes, startDate, endDate, success, error);
             });
         }
 function alerta(txt){
