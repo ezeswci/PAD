@@ -71,14 +71,15 @@ function abrirVentana(ventana) {
         document.getElementById("cartel").style.visibility = "visible";
         document.getElementById("fondo_negro").style.visibility = "visible";
     } else {
-        document.getElementById("cartel").style.visibility = "hidden";;
-        document.getElementById("fondo_negro").style.visibility = "hidden";
+        document.getElementById("cartel2").style.visibility = "visible";;
+        document.getElementById("fondo_negro").style.visibility = "visible";
     }
 
 }
 
 function cerrarVentana() {
     document.getElementById("cartel").style.visibility = "hidden";
+	document.getElementById("cartel2").style.visibility = "hidden";
     document.getElementById("fondo_negro").style.visibility = "hidden";
 
 }

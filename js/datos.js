@@ -139,6 +139,14 @@ function verif() {
         alerta("MAX y MIN deben ser valores numéricos.");
         return false;
     }
+	if (min>=max) {
+        alerta("MAX debes ser mayor a MIN");
+        return false;
+    }
+	if (min<=15 || max<=30) {
+        alerta("Los valores se expresan en mmHg; Ejemplo 12/7 debe cargarse como 120/70.");
+        return false;
+    }
     if (date == "dd-mm-aa") {
         alerta("Debes ingresar una fecha valida.");
         return false;

@@ -194,6 +194,11 @@ a {
 .cuerpo .info {
 	font-size: 14px;
 }
+.cuerpo .item img {
+	height: auto;
+	width: 16%;
+	max-width: 122px;
+}
 .cuerpo .item {
 	margin-top:10px;
 	margin-bottom: 20px;
@@ -208,12 +213,6 @@ a {
 .cuerpo .item.last {
 	margin-top:5px;
 	margin-bottom: 5px;
-}
-
-.cuerpo .item img {
-	height: auto;
-	width: 16%;
-	max-width: 122px;
 }
 
 .cuerpo .item .texto {
@@ -807,11 +806,19 @@ a {
 body {
   zoom: 135%;
 }
+.cuerpo .boton.inicio {
+	margin-top:0px;
+	margin-bottom:0px;
+}
 }
 @media screen and (min-height: 1200px) {
 	/* Si es mas grande que los regulares */
 body {
   zoom: 150%;
+}
+.cuerpo .boton.inicio {
+	margin-top:0px;
+	margin-bottom:0px;
 }
 }
 @media screen and (max-height: 500px) {
@@ -851,10 +858,20 @@ body {
 	height: 30px;
 	vertical-align: middle;
 }
+.cuerpo .boton.inicio {
+	margin-top:0px;
+	margin-bottom:0px;
+}
 }
 }
 @media screen and (max-width: 350px) {
 	.cuerpo_mas .item {
 	font-size: 13px;
 }
+}
+.terminos{
+	width:100%;
+	height:auto;
+	overflow: visible;
+	max-height:50vh;
 }
