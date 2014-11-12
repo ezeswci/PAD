@@ -139,7 +139,7 @@ function verif() {
         alerta("MAX y MIN deben ser valores numéricos.");
         return false;
     }
-	if (min>=max) {
+	if (parseInt(min)>=parseInt(max)) {
         alerta("MAX debes ser mayor a MIN");
         return false;
     }
