@@ -140,7 +140,7 @@ function verif() {
         return false;
     }
 	if (parseInt(min)>=parseInt(max)) {
-        alerta("MAX debes ser mayor a MIN");
+        alerta("MAX debe ser mayor a MIN");
         return false;
     }
 	if (min<=15 || max<=30) {
