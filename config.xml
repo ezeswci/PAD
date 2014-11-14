@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.swci.celMiPresion"
+        id        = "MiPresion"
         version   = "1.5.0">
 
     <name>Mi Presión</name>
@@ -10,8 +10,8 @@
         Mi Presión App, es una App que sirve para llevar el control tu PRESIÓN ARTERIAL de manera DIGITAL
     </description>
 
-    <author href="http://www.swci.com.ar" email="info@swci.com.ar">
-        Swci Team
+    <author href="http://www.tumedicinadigital.com" email="info@tumedicinadigital.com">
+        Tu Medicina Digital Team
     </author>
 	<preference name="permissions"                value="none"/>
 
