@@ -68,11 +68,9 @@
 	<!-- Define app icon for each platform. -->	
 	<icon src="img/favicon.png" />
     <icon src="img/favicon.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="img/favicon.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="img/favicon.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="img/favicon.png"  gap:platform="android"    gap:density="xhdpi" />
-    <icon src="img/favicon.png"     gap:platform="blackberry" />
-    <icon src="img/favicon.png"     gap:platform="blackberry" gap:state="hover"/>
+    <icon src="img/logo72.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="img/logo114.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="img/logo144.png"  gap:platform="android"    gap:density="xhdpi" />
     <icon src="img/logo57.png"            gap:platform="ios"        width="57" height="57" />
     <icon src="img/logo72.png"            gap:platform="ios"        width="72" height="72" />
     <icon src="img/logo114.png"         gap:platform="ios"        width="114" height="114" />
@@ -85,11 +83,10 @@
     <icon src="img/favicon.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="img/start1.jpg"       gap:platform="android" gap:qualifier="port-ldpi" />
-    <gap:splash src="img/start1.jpg"       gap:platform="android" gap:qualifier="port-mdpi" />
-    <gap:splash src="img/start2.jpg"       gap:platform="android" gap:qualifier="port-hdpi" />
-    <gap:splash src="img/start2.jpg"      gap:platform="android" gap:qualifier="port-xhdpi" />
-    <gap:splash src="img/start1.jpg"              gap:platform="blackberry" />
+    <gap:splash src="img/Default@2x.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="img/Default@2x.png"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="img/Default-Portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="img/Default-Portrait@2x.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
     <gap:splash src="img/Default.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="img/Default@2x.png" gap:platform="ios"     width="640" height="960" />
     <gap:splash src="img/Default-Portrait.png"      gap:platform="ios"     width="768" height="1024" />
@@ -97,7 +94,7 @@
     <gap:splash src="img/Default-Landscape.png"     gap:platform="ios"     width="1024" height="768" />
 	<gap:splash src="img/Default-LandscapeLeft@2x.png"     gap:platform="ios"     width="2048" height="1536" />
 	<gap:splash src="img/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
-    <gap:splash src="img/start2.jpg" gap:platform="winphone" />   
+    <gap:splash src="img/Default@2x.png" gap:platform="winphone" />   
 
     <!--
         Define access to external domains.
