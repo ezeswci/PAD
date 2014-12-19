@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "MiPresion"
-        version   = "1.5.0">
+        version   = "1.5.1">
 
     <name>Mi Presión</name>
 
