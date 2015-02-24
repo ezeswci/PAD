@@ -9,11 +9,62 @@
     <script src="js/datos.js" type="text/javascript"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-
+    <script>
+	setInterval(function () {cambiarImagen();}, 20000);
+	function cambiarImagen(){
+		//alert("1");
+		playAnimation("img_ppal", "anOcultarMostrar4por10");
+		//alert("2");
+		setTimeout(function(){
+			//alert("3");
+		valor=document.getElementById("img_ppal").src;
+		largo=valor.length;
+		if(valor.indexOf("2.jpg")>0){
+			dir=valor.substr(0,(largo-5))+'.jpg';}
+			else{
+			dir=valor.substr(0,(largo-4))+'2.jpg';	
+				}
+		document.getElementById("img_ppal").src=dir;},2000);
+		
+	}
+	function playAnimation(elementid, classAnimation){
+	var element=document.getElementById(elementid);
+	if(element.classList.contains(classAnimation)){ 
+	//No deberia por que repetirse pero si llega a estar repetida la borra
+	element.classList.remove(classAnimation);
+	}else{
+		element.classList.add(classAnimation);
+	}
+	// Le pongo un Listener para cada tipo de navegador
+	element.addEventListener("webkitAnimationEnd", function(){element.classList.remove(classAnimation);}, false);
+	element.addEventListener("animationend", function(){element.classList.remove(classAnimation);}, false);
+	element.addEventListener("oanimationend", function(){element.classList.remove(classAnimation);}, false);
+	element.addEventListener("MSAnimationEnd", function(){element.classList.remove(classAnimation);}, false);
+}
+	</script>
+<style>
+@-webkit-keyframes ocultarmostrar410 {
+	0% {opacity: 1;filter: alpha(opacity=100); }
+    50% {opacity: 0;filter: alpha(opacity=0); /* For IE8 and earlier */}
+	100% {opacity: 1;filter: alpha(opacity=100); /* For IE8 and earlier */}
+}
+/* Standard syntax */
+@keyframes ocultarmostrar410 {
+	0% {opacity: 1;filter: alpha(opacity=100); }
+    50% {opacity: 0;filter: alpha(opacity=0); /* For IE8 and earlier */}
+	100% {opacity: 1;filter: alpha(opacity=100);/* For IE8 and earlier */}
+}
+.anOcultarMostrar4por10 {
+  -webkit-animation-name: ocultarmostrar410;
+  animation-name: ocultarmostrar410;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+}
+</style>
 </head>
 
 <body>
-    <div class="header_publi"><div class="wrapper"><img src="img/banner.jpg" width="100%" /></div></div>
+    <div class="header_publi"><div class="wrapper"><img src="img/banner.jpg" id="img_ppal" width="100%" /></div></div>
     <div class="header_carga">
         <div class="triangulo_inf2"></div>
         <div class="titulo">MI PRESI&Oacute;N
